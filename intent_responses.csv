@@ -1,0 +1,23 @@
+intent,response
+ I have a question about my account,Hello! How can I assist you today?
+ I'd like to apply for a business loan,Hello! How can I assist you today?
+ I'm done,"You're welcome! If you need anything else, just ask."
+ can you help me?,Hello! How can I assist you today?
+account_info,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+apply_card,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+apply_loan,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+check_balance,"Your current account balance is ₹25,000."
+check_history,"Your current account balance is ₹25,000. Would you like a mini statement?"
+close_account,"To close your account, please confirm the account number and reason. We will guide you with next steps."
+create_account,"You can open a new account online in minutes. I can guide you through the documents required (ID proof, address proof)."
+get_branch_details,You can locate branches using our branch locator on the website or app. Want me to find the nearest one?
+get_interest_rate,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
+greeting_bye,"You're welcome! If you need anything else, just ask."
+greeting_hi,This is a default reply for intent 'greeting_hi'. (Please customize me!)
+card_info,"We offer both credit and debit cards. Do you want information about a credit card or a debit card?"
+credit_card_info,"A credit card lets you borrow funds up to a certain limit and pay later with interest."
+debit_card_info,"A debit card is linked to your bank account and allows you to spend only available balance."
+lost_card,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+transfer_money,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+visa_card_info,"Visa cards are globally accepted and backed by Visa's payment network."
+rupay_card_info,"RuPay is an Indian domestic card scheme for debit and credit cards."

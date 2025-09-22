@@ -1,0 +1,117 @@
+[
+  
+  { "label": "card_type", "pattern": "credit card" },
+  { "label": "card_type", "pattern": "debit card" },
+  { "label": "card_type", "pattern": "visa card" },
+  { "label": "card_type", "pattern": "mastercard" },
+  { "label": "card_type", "pattern": "atm card" },
+  { "label": "card_type", "pattern": "rupay card" },
+  { "label": "card_type", "pattern": "platinum card" },
+  { "label": "card_type", "pattern": "gold card" },
+  { "label": "card_type", "pattern": "business card" },
+  { "label": "card_type", "pattern": "prepaid card" },
+
+  { "label": "account_type", "pattern": "savings" },
+  { "label": "account_type", "pattern": "current" },
+  { "label": "account_type", "pattern": "checking account" },
+  { "label": "account_type", "pattern": "salary account" },
+  { "label": "account_type", "pattern": "student account" },
+  { "label": "account_type", "pattern": "joint account" },
+  { "label": "account_type", "pattern": "fixed deposit account" },
+  { "label": "account_type", "pattern": "recurring deposit account" },
+  { "label": "account_type", "pattern": "zero balance account" },
+  { "label": "account_type", "pattern": "nri account" },
+
+  { "label": "loan_type", "pattern": "home loan" },
+  { "label": "loan_type", "pattern": "car loan" },
+  { "label": "loan_type", "pattern": "personal loan" },
+  { "label": "loan_type", "pattern": "student loan" },
+  { "label": "loan_type", "pattern": "gold loan" },
+  { "label": "loan_type", "pattern": "business loan" },
+  { "label": "loan_type", "pattern": "education loan" },
+  { "label": "loan_type", "pattern": "mortgage loan" },
+  { "label": "loan_type", "pattern": "agriculture loan" },
+  { "label": "loan_type", "pattern": "property loan" },
+
+  {
+    "label": "amount",
+    "pattern": [{ "TEXT": { "REGEX": "^(₹|Rs|INR)\\s?\\d+" } }]
+  },
+  {
+    "label": "account_number",
+    "pattern": [{ "TEXT": { "REGEX": "^[0-9]{6,12}$" } }]
+  },
+  {
+    "label": "account_number",
+    "pattern": [{ "TEXT": { "REGEX": "^[0-9]{8,16}$" } }]
+  },
+  {
+    "label": "account_number",
+    "pattern": [{ "TEXT": { "REGEX": "AC\\d{6,10}" } }]
+  },
+  {
+    "label": "account_number",
+    "pattern": [{ "TEXT": { "REGEX": "A/C\\s?\\d{6,12}" } }]
+  },
+  {
+    "label": "account_number",
+    "pattern": [{ "TEXT": { "REGEX": "Acct\\.?\\s?\\d{6,12}" } }]
+  },
+  {
+    "label": "account_number",
+    "pattern": [{ "TEXT": { "REGEX": "ACC\\d{6,12}" } }]
+  },
+  {
+    "label": "account_number",
+    "pattern": [{ "TEXT": { "REGEX": "ACCT\\s?\\d{6,16}" } }]
+  },
+  {
+    "label": "account_number",
+    "pattern": [{ "TEXT": { "REGEX": "AccNo\\s?\\d{6,16}" } }]
+  },
+  {
+    "label": "account_number",
+    "pattern": [{ "TEXT": { "REGEX": "ActNo\\s?\\d{6,16}" } }]
+  },
+  {
+    "label": "account_number",
+    "pattern": [{ "TEXT": { "REGEX": "Account\\s?\\d{6,16}" } }]
+  },
+  {
+    "label": "date",
+    "pattern": [
+      {
+        "TEXT": {
+          "REGEX": "^(0?[1-9]|[12][0-9]|3[01])[-/](0?[1-9]|1[0-2])[-/](\\d{2}|\\d{4})$"
+        }
+      }
+    ]
+  },
+  {
+    "label": "date",
+    "pattern": [
+      {
+        "TEXT": {
+          "REGEX": "^(0?[1-9]|1[0-2])[-/](0?[1-9]|[12][0-9]|3[01])[-/](\\d{2}|\\d{4})$"
+        }
+      }
+    ]
+  },
+  {
+    "label": "date",
+    "pattern": [
+      {
+        "TEXT": {
+          "REGEX": "^(\\d{4})[-/](0?[1-9]|1[0-2])[-/](0?[1-9]|[12][0-9]|3[01])$"
+        }
+      }
+    ]
+  },
+  { "label": "day", "pattern": [{ "LOWER": "today" }] },
+  { "label": "day", "pattern": [{ "LOWER": "yesterday" }] },
+  { "label": "day", "pattern": [{ "LOWER": "tomorrow" }] },
+  { "label": "day", "pattern": [{ "LOWER": "last" }, { "LOWER": "week" }] },
+  { "label": "day", "pattern": [{ "LOWER": "next" }, { "LOWER": "week" }] },
+  { "label": "day", "pattern": [{ "LOWER": "last" }, { "LOWER": "month" }] },
+  { "label": "day", "pattern": [{ "LOWER": "next" }, { "LOWER": "month" }] }
+]

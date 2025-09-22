@@ -1,0 +1,724 @@
+text,intent,card_type,account_type,loan_type,amount,account_number,date,day,response
+Transfer ₹5000 from my savings to checking,transfer_money,,savings,,₹5000,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+What's my current balance?,check_balance,,current,,,,,,"Your current account balance is ₹25,000."
+How much money do I have in my checking account?,check_balance,,checking account,,,,,,"Your current account balance is ₹25,000."
+Show me my savings account balance,check_balance,,savings,,,,,,"Your current account balance is ₹25,000."
+I want to move ₹15000 to account 987654,transfer_money,,,,₹15000,987654,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+What is my account number?,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+Give me details of the main branch,get_branch_details,,,,,,,,You can locate branches using our branch locator on the website or app. Want me to find the nearest one?
+What is the interest rate for savings?,get_interest_rate,,savings,,,,,,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
+Can you tell me my account details?,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+Where is the branch in Bangalore?,get_branch_details,,,,,,,,You can locate branches using our branch locator on the website or app. Want me to find the nearest one?
+Show me the nearest branch address,get_branch_details,,,,,,,,You can locate branches using our branch locator on the website or app. Want me to find the nearest one?
+Tell me about cards,card_info,,,,,,,,"We offer both credit and debit cards. Do you want information about a credit card or a debit card?"
+I want card details,card_info,,,,,,,,"We offer both credit and debit cards. Do you want information about a credit card or a debit card?"
+Give me card information,card_info,,,,,,,,"We offer both credit and debit cards. Do you want information about a credit card or a debit card?"
+Tell me about credit cards,card_info,credit card,,,,,,,"A credit card lets you borrow funds up to a certain limit and pay later with interest."
+Give me debit card details,card_info,debit card,,,,,,,"A debit card is linked to your account and lets you spend available balance."
+What is a visa card?,card_info,visa card,,,,,,,"A Visa card is a globally accepted payment card backed by Visa network."
+Tell me about rupay card,card_info,rupay card,,,,,,,"RuPay is an Indian domestic card scheme offering debit and credit cards."
+
+I want to create a new joint account,create_account,,joint account,,,,,,"You can open a new account online in minutes. I can guide you through the documents required (ID proof, address proof)."
+Please block my credit card,lost_card,credit card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I have lost my atm card,lost_card,atm card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I want to apply for a home loan,apply_loan,,,,,home loan,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+What is the interest on my personal loan?,get_interest_rate,,,personal loan,,,,,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
+What is the interest rate for my education loan?,get_interest_rate,,,education loan,,,,,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
+I forgot my account number,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I want to apply for a student loan,apply_loan,,,student loan,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+Show me my transaction history for last week,check_history,,,,,,last week,,"Your current account balance is ₹25,000. Would you like a mini statement?"
+Show me my transactions for yesterday,check_history,,,,,,,yesterday,"Your current account balance is ₹25,000. Would you like a mini statement?"
+I want to check my account balance on 01/01/2023,check_balance,,,,,,01-01-2023,,"Your current account balance is ₹25,000."
+What is the current loan rate on a business loan?,get_interest_rate,,,business loan,,,,,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
+I want to apply for a car loan,apply_loan,,,car loan,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to send ₹2000 to my brother,transfer_money,,,,₹2000,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+Can you transfer 1000 rupees to account 123456789?,transfer_money,,,,1000 rupees,123456789,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+Deposit 5000 into my current account,transfer_money,,current,,5000,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I want to check my account balance,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+How much is in my account?,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+Please show me my available funds,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+Can you give me my account number?,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+Where is the branch located in Chennai?,get_branch_details,,,,,,,,You can locate branches using our branch locator on the website or app. Want me to find the nearest one?
+Tell me the interest rate on a fixed deposit,get_interest_rate,,,fixed deposit,,,,,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
+Can you show me a map of nearby branches?,get_branch_details,,,,,,,,You can locate branches using our branch locator on the website or app. Want me to find the nearest one?
+Hi, I have a question about my account,greeting_hi,,,,,,,Hello! How can I assist you today?
+Thanks for your help,greeting_bye,,,,,,,,"You're welcome! If you need anything else, just ask."
+Can I open a new savings account?,create_account,,savings,,,,,,"You can open a new account online in minutes. I can guide you through the documents required (ID proof, address proof)."
+I need to report a stolen debit card,lost_card,debit card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+My mastercard is missing,lost_card,mastercard,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+Tell me about the gold loan interest rate,get_interest_rate,,,gold loan,,,,,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
+I'd like to apply for a mortgage loan,apply_loan,,,mortgage loan,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+What is the rate for a personal loan?,get_interest_rate,,,personal loan,,,,,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
+Show me transactions for the last 30 days,check_history,,,,,,,30 days,"Your current account balance is ₹25,000. Would you like a mini statement?"
+I need to check my balance on my birthday,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+Hey, I'd like to apply for a business loan,apply_loan,,,business loan,,,,Hello! How can I assist you today?
+What is the interest rate for a new car loan?,get_interest_rate,,,car loan,,,,,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
+I need to report my credit card as lost,lost_card,credit card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+What's the process to open a new account?,create_account,,,,,,,,"You can open a new account online in minutes. I can guide you through the documents required (ID proof, address proof)."
+Show me all my transactions this month,check_history,,,,,,,this month,"Your current account balance is ₹25,000. Would you like a mini statement?"
+I want to transfer Rs. 5000 to my account,transfer_money,,,,Rs. 5000,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+Can I get details of my current account?,account_info,,current,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+How much is the loan interest rate for students?,get_interest_rate,,,student loan,,,,,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
+What is the nearest branch to me?,get_branch_details,,,,,,,,You can locate branches using our branch locator on the website or app. Want me to find the nearest one?
+I need to block my prepaid card,lost_card,prepaid card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I want to open a recurring deposit account,create_account,,recurring deposit account,,,,,,"You can open a new account online in minutes. I can guide you through the documents required (ID proof, address proof)."
+What is my balance,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+Could you tell me the address of the branch on Main Street?,get_branch_details,,,,,,,,You can locate branches using our branch locator on the website or app. Want me to find the nearest one?
+Thank you, I'm done,greeting_bye,,,,,,,"You're welcome! If you need anything else, just ask."
+I need to make a payment of ₹10000 to account number AC1234567,transfer_money,,,,₹10000,AC1234567,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+Please show my transaction history for last month,check_history,,,,,,,last month,"Your current account balance is ₹25,000. Would you like a mini statement?"
+I'd like to apply for an agriculture loan,apply_loan,,,agriculture loan,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+Hello, can you help me?,greeting_hi,,,,,,,Hello! How can I assist you today?
+Where is your main office?,get_branch_details,,,,,,,,You can locate branches using our branch locator on the website or app. Want me to find the nearest one?
+I've lost my Visa card,lost_card,visa card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I want to apply for a property loan,apply_loan,,,property loan,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+How much is in my savings account?,check_balance,,savings,,,,,,"Your current account balance is ₹25,000."
+Tell me about the interest rates,get_interest_rate,,,,,,,,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
+I need to create a new salary account,create_account,,salary account,,,,,,"You can open a new account online in minutes. I can guide you through the documents required (ID proof, address proof)."
+What's the current interest rate?,get_interest_rate,,,,,,,,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
+Can you help me get a personal loan?,apply_loan,,,personal loan,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to block my ATM card,lost_card,atm card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I want to check my account balance today,check_balance,,,,,,,today,"Your current account balance is ₹25,000."
+What is the interest rate on a home loan?,get_interest_rate,,,home loan,,,,,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
+I have a question,greeting_hi,,,,,,,,This is a default reply for intent 'greeting_hi'. (Please customize me!)
+What is my loan account number?,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I want to move 500 dollars to account 1234567,transfer_money,,,,500 dollars,1234567,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I'm looking for a student loan,apply_loan,,,student loan,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I want to close my account,close_account,,,,,,,,"To close your account, please confirm the account number and reason. We will guide you with next steps."
+Where is the closest branch to me?,get_branch_details,,,,,,,,You can locate branches using our branch locator on the website or app. Want me to find the nearest one?
+Tell me about my checking account,account_info,,checking account,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to send money,transfer_money,,,,,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I have lost my credit card,lost_card,credit card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+Could you please transfer 25000 rupees to account 9876543210,transfer_money,,,,25000 rupees,9876543210,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I'd like to know my balance,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+What are the requirements for a new account?,create_account,,,,,,,,"You can open a new account online in minutes. I can guide you through the documents required (ID proof, address proof)."
+I have lost my Rupay card,lost_card,rupay card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+How much is the interest rate for business loans?,get_interest_rate,,,business loan,,,,,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
+What is the procedure for a home loan?,apply_loan,,,home loan,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I want to transfer funds from my current to savings account,transfer_money,,current,savings,,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I need help,greeting_hi,,,,,,,,This is a default reply for intent 'greeting_hi'. (Please customize me!)
+I want to apply for a new debit card,apply_card,debit card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+How do I check my balance?,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+I lost my Mastercard,lost_card,mastercard,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+Can I get the details of my fixed deposit account?,account_info,,fixed deposit account,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to know my account details,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I want to check my balance on tomorrow,check_balance,,,,,,,tomorrow,"Your current account balance is ₹25,000."
+How do I open a zero balance account?,create_account,,zero balance account,,,,,,"You can open a new account online in minutes. I can guide you through the documents required (ID proof, address proof)."
+I need to make a transaction of 5000,transfer_money,,,,5000,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+Could you tell me the interest rate on student loans?,get_interest_rate,,,student loan,,,,,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
+I need to find the branch address in Delhi,get_branch_details,,,,,,,,You can locate branches using our branch locator on the website or app. Want me to find the nearest one?
+I would like to apply for a gold loan,apply_loan,,,gold loan,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I want to apply for a new card,apply_card,,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I want to check my balance for yesterday,check_balance,,,,,,,yesterday,"Your current account balance is ₹25,000."
+I need to transfer money to account 123456,transfer_money,,,,,123456,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I want to apply for a new platinum card,apply_card,platinum card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I need to send money to a friend,transfer_money,,,,,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+What's my balance for my current account?,check_balance,,current,,,,,,"Your current account balance is ₹25,000."
+I need to block my business card,lost_card,business card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+Please tell me my account number,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to create a new account,create_account,,,,,,,,"You can open a new account online in minutes. I can guide you through the documents required (ID proof, address proof)."
+I'm looking for an agriculture loan,apply_loan,,,agriculture loan,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+Tell me the location of the branch in Mumbai,get_branch_details,,,,,,,,You can locate branches using our branch locator on the website or app. Want me to find the nearest one?
+I want to apply for a new visa card,apply_card,visa card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I need to transfer funds,transfer_money,,,,,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+Can you help me with a car loan?,apply_loan,,,car loan,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+What is my balance,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+I have lost my prepaid card,lost_card,prepaid card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I need to apply for a new credit card,apply_card,credit card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+How can I find out my account number?,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to send money to account 888999,transfer_money,,,,,888999,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+What are the interest rates for different loans?,get_interest_rate,,,,,,,,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
+I have lost my gold card,lost_card,gold card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I need to apply for a new business card,apply_card,business card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I want to know the interest rate for a new car loan,get_interest_rate,,,car loan,,,,,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
+Show me my account balance,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+What is the interest rate for a property loan?,get_interest_rate,,,property loan,,,,,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
+I need to open a new student account,create_account,,student account,,,,,,"You can open a new account online in minutes. I can guide you through the documents required (ID proof, address proof)."
+I want to transfer 1000 rupees,transfer_money,,,,1000 rupees,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I want to see my transaction history,check_history,,,,,,,,"Your current account balance is ₹25,000. Would you like a mini statement?"
+How can I get a loan?,apply_loan,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I want to close my savings account,close_account,,savings,,,,,,"To close your account, please confirm the account number and reason. We will guide you with next steps."
+I need to find a branch,get_branch_details,,,,,,,,You can locate branches using our branch locator on the website or app. Want me to find the nearest one?
+I'm done,greeting_bye,,,,,,,,"You're welcome! If you need anything else, just ask."
+I want to send 50000 rupees to account AC123456,transfer_money,,,,50000 rupees,AC123456,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I need to get a home loan,apply_loan,,,home loan,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+My ATM card is lost,lost_card,atm card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I'd like to check my balance,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+I want to apply for a new atm card,apply_card,atm card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+What are the charges for a new account?,create_account,,,,,,,,"You can open a new account online in minutes. I can guide you through the documents required (ID proof, address proof)."
+I want to transfer funds from my current to checking account,transfer_money,,current,checking account,,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+Where are your branches located?,get_branch_details,,,,,,,,You can locate branches using our branch locator on the website or app. Want me to find the nearest one?
+What is the interest rate on a car loan?,get_interest_rate,,,car loan,,,,,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
+I need to block my credit card,lost_card,credit card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I'd like to apply for an education loan,apply_loan,,,education loan,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to know my account details,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+Can you help me,greeting_hi,,,,,,,,This is a default reply for intent 'greeting_hi'. (Please customize me!)
+I'd like to open a new account,create_account,,,,,,,,"You can open a new account online in minutes. I can guide you through the documents required (ID proof, address proof)."
+I have lost my card,lost_card,,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+What is the address of the branch in Mumbai?,get_branch_details,,,,,,,,You can locate branches using our branch locator on the website or app. Want me to find the nearest one?
+I want to know about personal loan interest rates,get_interest_rate,,,personal loan,,,,,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
+I need to transfer 2000 from my savings account,transfer_money,,savings,,2000,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+How do I open a joint account?,create_account,,joint account,,,,,,"You can open a new account online in minutes. I can guide you through the documents required (ID proof, address proof)."
+I'm looking to transfer money,transfer_money,,,,,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I need to report a lost debit card,lost_card,debit card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+What's the process for getting a mortgage loan?,apply_loan,,,mortgage loan,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+Tell me about my balance,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+I need to apply for a new credit card,apply_card,credit card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I have a question about my account,greeting_hi,,,,,,,,This is a default reply for intent 'greeting_hi'. (Please customize me!)
+I want to send money to account ActNo 556677,transfer_money,,,,,ActNo 556677,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I need to check my account balance for the last 3 months,check_history,,,,,,,last 3 months,"Your current account balance is ₹25,000. Would you like a mini statement?"
+I want to know my account info,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to know my balance on 10/11/2024,check_balance,,,,,,10-11-2024,,"Your current account balance is ₹25,000."
+I want to know the interest rate for a home loan,get_interest_rate,,,home loan,,,,,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
+I need to find a branch near me,get_branch_details,,,,,,,,You can locate branches using our branch locator on the website or app. Want me to find the nearest one?
+I want to apply for a business loan,apply_loan,,,business loan,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I lost my credit card,lost_card,credit card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I need to apply for a new card,apply_card,,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+Tell me about my savings account,account_info,,savings,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to transfer money to a friend's account,transfer_money,,,,,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I'd like to close my current account,close_account,,current,,,,,,"To close your account, please confirm the account number and reason. We will guide you with next steps."
+How do I get a car loan?,apply_loan,,,car loan,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I want to know my balance,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+I want to apply for a new prepaid card,apply_card,prepaid card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I lost my Rupay card,lost_card,rupay card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I need to send 2000 from my current account to savings,transfer_money,,current,savings,,2000,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I want to close my account,close_account,,,,,,,,"To close your account, please confirm the account number and reason. We will guide you with next steps."
+I have a question about my account,greeting_hi,,,,,,,,This is a default reply for intent 'greeting_hi'. (Please customize me!)
+Can I get a student loan?,apply_loan,,,student loan,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I want to know about my account,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to get a loan,apply_loan,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I'm done,greeting_bye,,,,,,,,"You're welcome! If you need anything else, just ask."
+I want to check my account balance on 12/25/2024,check_balance,,,,,,12/25/2024,,"Your current account balance is ₹25,000."
+I need to know the interest rate for a car loan,get_interest_rate,,,car loan,,,,,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
+I want to check my account details,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to apply for an agriculture loan,apply_loan,,,agriculture loan,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I want to apply for a home loan,apply_loan,,,home loan,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to send money,transfer_money,,,,,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I need to apply for a business loan,apply_loan,,,business loan,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+What is my balance,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+I'm looking to apply for a new debit card,apply_card,debit card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I have a question about my account,greeting_hi,,,,,,,,This is a default reply for intent 'greeting_hi'. (Please customize me!)
+Can you help me get a loan?,apply_loan,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to know my account details,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+How can I get an education loan?,apply_loan,,,education loan,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+What is the interest rate for a student loan?,get_interest_rate,,,student loan,,,,,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
+I need to know my balance,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+I want to check my account balance on 01-10-2024,check_balance,,,,,,01-10-2024,,"Your current account balance is ₹25,000."
+I need to find a branch,get_branch_details,,,,,,,,You can locate branches using our branch locator on the website or app. Want me to find the nearest one?
+I want to transfer funds,transfer_money,,,,,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I need to report a lost atm card,lost_card,atm card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I need to open a new account,create_account,,,,,,,,"You can open a new account online in minutes. I can guide you through the documents required (ID proof, address proof)."
+I want to know about my account,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+How can I check my balance?,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+I want to apply for a mortgage loan,apply_loan,,,mortgage loan,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to send money to account AC1234567,transfer_money,,,,,AC1234567,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+What's the interest rate on a mortgage loan?,get_interest_rate,,,mortgage loan,,,,,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
+I have lost my mastercard,lost_card,mastercard,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+What's the process for getting a gold loan?,apply_loan,,,gold loan,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I want to check my balance,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+I want to know my account number,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to apply for a new card,apply_card,,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I need to transfer 5000 rupees to account 12345678,transfer_money,,,,5000 rupees,12345678,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I have a question about my account,greeting_hi,,,,,,,,This is a default reply for intent 'greeting_hi'. (Please customize me!)
+I need to close my account,close_account,,,,,,,,"To close your account, please confirm the account number and reason. We will guide you with next steps."
+I want to know the interest rate for a property loan,get_interest_rate,,,property loan,,,,,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
+I have lost my credit card,lost_card,credit card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I need to transfer funds from my current account,transfer_money,,current,,,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I want to apply for a personal loan,apply_loan,,,personal loan,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to find a branch,get_branch_details,,,,,,,,You can locate branches using our branch locator on the website or app. Want me to find the nearest one?
+I want to apply for a new visa card,apply_card,visa card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I need to know my balance,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+I want to know my account details,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to transfer money to a friend,transfer_money,,,,,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+How can I open a new account?,create_account,,,,,,,,"You can open a new account online in minutes. I can guide you through the documents required (ID proof, address proof)."
+I need to transfer 10000 rupees from my savings,transfer_money,,savings,,10000,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I'd like to get a home loan,apply_loan,,,home loan,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to report a lost card,lost_card,,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I'm looking to get a loan,apply_loan,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I want to check my account balance for yesterday,check_balance,,,,,,,yesterday,"Your current account balance is ₹25,000."
+I want to know about my account,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to check my balance,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+I want to close my current account,close_account,,current,,,,,,"To close your account, please confirm the account number and reason. We will guide you with next steps."
+I have lost my card,lost_card,,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+What is the interest rate for a car loan?,get_interest_rate,,,car loan,,,,,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
+I need to transfer 2000 from my savings account to checking,transfer_money,,savings,checking,,2000,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I want to know my account details,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+How can I check my balance?,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+I need to open a new account,create_account,,,,,,,,"You can open a new account online in minutes. I can guide you through the documents required (ID proof, address proof)."
+I want to know about my savings account,account_info,,savings,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to apply for a new card,apply_card,,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I want to know the interest rate for a student loan,get_interest_rate,,,student loan,,,,,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
+I need to know my balance,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+I need to transfer money to a friend's account,transfer_money,,,,,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I have lost my mastercard,lost_card,mastercard,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I want to know about my account,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+How can I get a car loan?,apply_loan,,,car loan,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I want to check my account balance on 01-01-2025,check_balance,,,,,,01-01-2025,,"Your current account balance is ₹25,000."
+I need to find a branch,get_branch_details,,,,,,,,You can locate branches using our branch locator on the website or app. Want me to find the nearest one?
+I want to transfer funds from my current account,transfer_money,,current,,,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I need to report a lost debit card,lost_card,debit card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I need to apply for a new credit card,apply_card,credit card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I want to know my account details,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to send money to account AC1234567,transfer_money,,,,,AC1234567,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+What's the interest rate on a mortgage loan?,get_interest_rate,,,mortgage loan,,,,,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
+I have lost my mastercard,lost_card,mastercard,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+What's the process for getting a gold loan?,apply_loan,,,gold loan,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I want to check my balance,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+I want to know my account number,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to apply for a new card,apply_card,,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I need to transfer 5000 rupees to account 12345678,transfer_money,,,,5000 rupees,12345678,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I have a question about my account,greeting_hi,,,,,,,,This is a default reply for intent 'greeting_hi'. (Please customize me!)
+I need to close my account,close_account,,,,,,,,"To close your account, please confirm the account number and reason. We will guide you with next steps."
+I want to know the interest rate for a property loan,get_interest_rate,,,property loan,,,,,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
+I have lost my credit card,lost_card,credit card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I need to transfer funds from my current account,transfer_money,,current,,,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I want to apply for a personal loan,apply_loan,,,personal loan,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to find a branch,get_branch_details,,,,,,,,You can locate branches using our branch locator on the website or app. Want me to find the nearest one?
+I want to apply for a new visa card,apply_card,visa card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I need to know my balance,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+I want to know my account details,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to transfer money to a friend,transfer_money,,,,,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+How can I open a new account?,create_account,,,,,,,,"You can open a new account online in minutes. I can guide you through the documents required (ID proof, address proof)."
+I need to transfer 10000 rupees from my savings,transfer_money,,savings,,10000,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I'd like to get a home loan,apply_loan,,,home loan,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to report a lost card,lost_card,,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I'm looking to get a loan,apply_loan,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I want to check my account balance for yesterday,check_balance,,,,,,,yesterday,"Your current account balance is ₹25,000."
+I want to know about my account,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to check my balance,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+I want to close my current account,close_account,,current,,,,,,"To close your account, please confirm the account number and reason. We will guide you with next steps."
+I have lost my card,lost_card,,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+What is the interest rate for a car loan?,get_interest_rate,,,car loan,,,,,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
+I need to transfer 2000 from my savings account to checking,transfer_money,,savings,checking,,2000,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I want to know my account details,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+How can I check my balance?,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+I need to open a new account,create_account,,,,,,,,"You can open a new account online in minutes. I can guide you through the documents required (ID proof, address proof)."
+I want to know about my savings account,account_info,,savings,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to apply for a new card,apply_card,,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I want to know the interest rate for a student loan,get_interest_rate,,,student loan,,,,,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
+I need to know my balance,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+I need to transfer money to a friend's account,transfer_money,,,,,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I have lost my mastercard,lost_card,mastercard,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I want to know about my account,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+How can I get a car loan?,apply_loan,,,car loan,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I want to check my account balance on 01-01-2025,check_balance,,,,,,01-01-2025,,"Your current account balance is ₹25,000."
+I need to find a branch,get_branch_details,,,,,,,,You can locate branches using our branch locator on the website or app. Want me to find the nearest one?
+I want to transfer funds from my current account,transfer_money,,current,,,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I need to report a lost debit card,lost_card,debit card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I need to apply for a new credit card,apply_card,credit card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I want to know my account details,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to send money to account AC1234567,transfer_money,,,,,AC1234567,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+What's the interest rate on a mortgage loan?,get_interest_rate,,,mortgage loan,,,,,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
+I have lost my mastercard,lost_card,mastercard,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+What's the process for getting a gold loan?,apply_loan,,,gold loan,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I want to check my balance,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+I want to know my account number,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to apply for a new card,apply_card,,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I need to transfer 5000 rupees to account 12345678,transfer_money,,,,5000 rupees,12345678,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I have a question about my account,greeting_hi,,,,,,,,This is a default reply for intent 'greeting_hi'. (Please customize me!)
+I need to close my account,close_account,,,,,,,,"To close your account, please confirm the account number and reason. We will guide you with next steps."
+I want to know the interest rate for a property loan,get_interest_rate,,,property loan,,,,,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
+I have lost my credit card,lost_card,credit card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I need to transfer funds from my current account,transfer_money,,current,,,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I want to apply for a personal loan,apply_loan,,,personal loan,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to find a branch,get_branch_details,,,,,,,,You can locate branches using our branch locator on the website or app. Want me to find the nearest one?
+I want to apply for a new visa card,apply_card,visa card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I need to know my balance,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+I want to know my account details,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to transfer money to a friend,transfer_money,,,,,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+How can I open a new account?,create_account,,,,,,,,"You can open a new account online in minutes. I can guide you through the documents required (ID proof, address proof)."
+I need to transfer 10000 rupees from my savings,transfer_money,,savings,,10000,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I'd like to get a home loan,apply_loan,,,home loan,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to report a lost card,lost_card,,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I'm looking to get a loan,apply_loan,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I want to check my account balance for yesterday,check_balance,,,,,,,yesterday,"Your current account balance is ₹25,000."
+I want to know about my account,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to check my balance,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+I want to close my current account,close_account,,current,,,,,,"To close your account, please confirm the account number and reason. We will guide you with next steps."
+I have lost my card,lost_card,,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+What is the interest rate for a car loan?,get_interest_rate,,,car loan,,,,,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
+I need to transfer 2000 from my savings account to checking,transfer_money,,savings,checking,,2000,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I want to know my account details,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+How can I check my balance?,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+I need to open a new account,create_account,,,,,,,,"You can open a new account online in minutes. I can guide you through the documents required (ID proof, address proof)."
+I want to know about my savings account,account_info,,savings,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to apply for a new card,apply_card,,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I want to know the interest rate for a student loan,get_interest_rate,,,student loan,,,,,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
+I need to know my balance,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+I need to transfer money to a friend's account,transfer_money,,,,,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I have lost my mastercard,lost_card,mastercard,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I want to know about my account,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+How can I get a car loan?,apply_loan,,,car loan,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I want to check my account balance on 01-01-2025,check_balance,,,,,,01-01-2025,,"Your current account balance is ₹25,000."
+I need to find a branch,get_branch_details,,,,,,,,You can locate branches using our branch locator on the website or app. Want me to find the nearest one?
+I want to transfer funds from my current account,transfer_money,,current,,,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I need to report a lost debit card,lost_card,debit card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I need to apply for a new credit card,apply_card,credit card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I want to know my account details,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to send money to account AC1234567,transfer_money,,,,,AC1234567,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+What's the interest rate on a mortgage loan?,get_interest_rate,,,mortgage loan,,,,,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
+I have lost my mastercard,lost_card,mastercard,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+What's the process for getting a gold loan?,apply_loan,,,gold loan,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I want to check my balance,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+I want to know my account number,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to apply for a new card,apply_card,,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I need to transfer 5000 rupees to account 12345678,transfer_money,,,,5000 rupees,12345678,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I have a question about my account,greeting_hi,,,,,,,,This is a default reply for intent 'greeting_hi'. (Please customize me!)
+I need to close my account,close_account,,,,,,,,"To close your account, please confirm the account number and reason. We will guide you with next steps."
+I want to know the interest rate for a property loan,get_interest_rate,,,property loan,,,,,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
+I have lost my credit card,lost_card,credit card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I need to transfer funds from my current account,transfer_money,,current,,,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I want to apply for a personal loan,apply_loan,,,personal loan,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to find a branch,get_branch_details,,,,,,,,You can locate branches using our branch locator on the website or app. Want me to find the nearest one?
+I want to apply for a new visa card,apply_card,visa card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I need to know my balance,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+I want to know my account details,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to transfer money to a friend,transfer_money,,,,,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+How can I open a new account?,create_account,,,,,,,,"You can open a new account online in minutes. I can guide you through the documents required (ID proof, address proof)."
+I need to transfer 10000 rupees from my savings,transfer_money,,savings,,10000,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I'd like to get a home loan,apply_loan,,,home loan,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to report a lost card,lost_card,,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I'm looking to get a loan,apply_loan,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I want to check my account balance for yesterday,check_balance,,,,,,,yesterday,"Your current account balance is ₹25,000."
+I want to know about my account,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to check my balance,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+I want to close my current account,close_account,,current,,,,,,"To close your account, please confirm the account number and reason. We will guide you with next steps."
+I have lost my card,lost_card,,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+What is the interest rate for a car loan?,get_interest_rate,,,car loan,,,,,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
+I need to transfer 2000 from my savings account to checking,transfer_money,,savings,checking,,2000,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I want to know my account details,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+How can I check my balance?,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+I need to open a new account,create_account,,,,,,,,"You can open a new account online in minutes. I can guide you through the documents required (ID proof, address proof)."
+I want to know about my savings account,account_info,,savings,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to apply for a new card,apply_card,,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I want to know the interest rate for a student loan,get_interest_rate,,,student loan,,,,,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
+I need to know my balance,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+I need to transfer money to a friend's account,transfer_money,,,,,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I have lost my mastercard,lost_card,mastercard,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I want to know about my account,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+How can I get a car loan?,apply_loan,,,car loan,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I want to check my account balance on 01-01-2025,check_balance,,,,,,01-01-2025,,"Your current account balance is ₹25,000."
+I need to find a branch,get_branch_details,,,,,,,,You can locate branches using our branch locator on the website or app. Want me to find the nearest one?
+I want to transfer funds from my current account,transfer_money,,current,,,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I need to report a lost debit card,lost_card,debit card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I need to apply for a new credit card,apply_card,credit card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I want to know my account details,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to send money to account AC1234567,transfer_money,,,,,AC1234567,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+What's the interest rate on a mortgage loan?,get_interest_rate,,,mortgage loan,,,,,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
+I have lost my mastercard,lost_card,mastercard,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+What's the process for getting a gold loan?,apply_loan,,,gold loan,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I want to check my balance,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+I want to know my account number,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to apply for a new card,apply_card,,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I need to transfer 5000 rupees to account 12345678,transfer_money,,,,5000 rupees,12345678,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I have a question about my account,greeting_hi,,,,,,,,This is a default reply for intent 'greeting_hi'. (Please customize me!)
+I need to close my account,close_account,,,,,,,,"To close your account, please confirm the account number and reason. We will guide you with next steps."
+I want to know the interest rate for a property loan,get_interest_rate,,,property loan,,,,,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
+I have lost my credit card,lost_card,credit card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I need to transfer funds from my current account,transfer_money,,current,,,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I want to apply for a personal loan,apply_loan,,,personal loan,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to find a branch,get_branch_details,,,,,,,,You can locate branches using our branch locator on the website or app. Want me to find the nearest one?
+I want to apply for a new visa card,apply_card,visa card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I need to know my balance,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+I want to know my account details,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to transfer money to a friend,transfer_money,,,,,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+How can I open a new account?,create_account,,,,,,,,"You can open a new account online in minutes. I can guide you through the documents required (ID proof, address proof)."
+I need to transfer 10000 rupees from my savings,transfer_money,,savings,,10000,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I'd like to get a home loan,apply_loan,,,home loan,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to report a lost card,lost_card,,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I'm looking to get a loan,apply_loan,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I want to check my account balance for yesterday,check_balance,,,,,,,yesterday,"Your current account balance is ₹25,000."
+I want to know about my account,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to check my balance,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+I want to close my current account,close_account,,current,,,,,,"To close your account, please confirm the account number and reason. We will guide you with next steps."
+I have lost my card,lost_card,,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+What is the interest rate for a car loan?,get_interest_rate,,,car loan,,,,,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
+I need to transfer 2000 from my savings account to checking,transfer_money,,savings,checking,,2000,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I want to know my account details,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+How can I check my balance?,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+I need to open a new account,create_account,,,,,,,,"You can open a new account online in minutes. I can guide you through the documents required (ID proof, address proof)."
+I want to know about my savings account,account_info,,savings,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to apply for a new card,apply_card,,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I want to know the interest rate for a student loan,get_interest_rate,,,student loan,,,,,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
+I need to know my balance,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+I need to transfer money to a friend's account,transfer_money,,,,,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I have lost my mastercard,lost_card,mastercard,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I want to know about my account,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+How can I get a car loan?,apply_loan,,,car loan,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I want to check my account balance on 01-01-2025,check_balance,,,,,,01-01-2025,,"Your current account balance is ₹25,000."
+I need to find a branch,get_branch_details,,,,,,,,You can locate branches using our branch locator on the website or app. Want me to find the nearest one?
+I want to transfer funds from my current account,transfer_money,,current,,,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I need to report a lost debit card,lost_card,debit card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I need to apply for a new credit card,apply_card,credit card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I want to know my account details,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to send money to account AC1234567,transfer_money,,,,,AC1234567,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+What's the interest rate on a mortgage loan?,get_interest_rate,,,mortgage loan,,,,,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
+I have lost my mastercard,lost_card,mastercard,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+What's the process for getting a gold loan?,apply_loan,,,gold loan,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I want to check my balance,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+I want to know my account number,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to apply for a new card,apply_card,,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I need to transfer 5000 rupees to account 12345678,transfer_money,,,,5000 rupees,12345678,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I have a question about my account,greeting_hi,,,,,,,,This is a default reply for intent 'greeting_hi'. (Please customize me!)
+I need to close my account,close_account,,,,,,,,"To close your account, please confirm the account number and reason. We will guide you with next steps."
+I want to know the interest rate for a property loan,get_interest_rate,,,property loan,,,,,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
+I have lost my credit card,lost_card,credit card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I need to transfer funds from my current account,transfer_money,,current,,,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I want to apply for a personal loan,apply_loan,,,personal loan,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to find a branch,get_branch_details,,,,,,,,You can locate branches using our branch locator on the website or app. Want me to find the nearest one?
+I want to apply for a new visa card,apply_card,visa card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I need to know my balance,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+I want to know my account details,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to transfer money to a friend,transfer_money,,,,,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+How can I open a new account?,create_account,,,,,,,,"You can open a new account online in minutes. I can guide you through the documents required (ID proof, address proof)."
+I need to transfer 10000 rupees from my savings,transfer_money,,savings,,10000,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I'd like to get a home loan,apply_loan,,,home loan,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to report a lost card,lost_card,,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I'm looking to get a loan,apply_loan,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I want to check my account balance for yesterday,check_balance,,,,,,,yesterday,"Your current account balance is ₹25,000."
+I want to know about my account,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to check my balance,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+I want to close my current account,close_account,,current,,,,,,"To close your account, please confirm the account number and reason. We will guide you with next steps."
+I have lost my card,lost_card,,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+What is the interest rate for a car loan?,get_interest_rate,,,car loan,,,,,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
+I need to transfer 2000 from my savings account to checking,transfer_money,,savings,checking,,2000,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I want to know my account details,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+How can I check my balance?,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+I need to open a new account,create_account,,,,,,,,"You can open a new account online in minutes. I can guide you through the documents required (ID proof, address proof)."
+I want to know about my savings account,account_info,,savings,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to apply for a new card,apply_card,,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I want to know the interest rate for a student loan,get_interest_rate,,,student loan,,,,,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
+I need to know my balance,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+I need to transfer money to a friend's account,transfer_money,,,,,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I have lost my mastercard,lost_card,mastercard,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I want to know about my account,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+How can I get a car loan?,apply_loan,,,car loan,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I want to check my account balance on 01-01-2025,check_balance,,,,,,01-01-2025,,"Your current account balance is ₹25,000."
+I need to find a branch,get_branch_details,,,,,,,,You can locate branches using our branch locator on the website or app. Want me to find the nearest one?
+I want to transfer funds from my current account,transfer_money,,current,,,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I need to report a lost debit card,lost_card,debit card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I need to apply for a new credit card,apply_card,credit card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I want to know my account details,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to send money to account AC1234567,transfer_money,,,,,AC1234567,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+What's the interest rate on a mortgage loan?,get_interest_rate,,,mortgage loan,,,,,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
+I have lost my mastercard,lost_card,mastercard,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+What's the process for getting a gold loan?,apply_loan,,,gold loan,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I want to check my balance,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+I want to know my account number,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to apply for a new card,apply_card,,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I need to transfer 5000 rupees to account 12345678,transfer_money,,,,5000 rupees,12345678,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I have a question about my account,greeting_hi,,,,,,,,This is a default reply for intent 'greeting_hi'. (Please customize me!)
+I need to close my account,close_account,,,,,,,,"To close your account, please confirm the account number and reason. We will guide you with next steps."
+I want to know the interest rate for a property loan,get_interest_rate,,,property loan,,,,,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
+I have lost my credit card,lost_card,credit card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I need to transfer funds from my current account,transfer_money,,current,,,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I want to apply for a personal loan,apply_loan,,,personal loan,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to find a branch,get_branch_details,,,,,,,,You can locate branches using our branch locator on the website or app. Want me to find the nearest one?
+I want to apply for a new visa card,apply_card,visa card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I need to know my balance,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+I want to know my account details,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to transfer money to a friend,transfer_money,,,,,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+How can I open a new account?,create_account,,,,,,,,"You can open a new account online in minutes. I can guide you through the documents required (ID proof, address proof)."
+I need to transfer 10000 rupees from my savings,transfer_money,,savings,,10000,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I'd like to get a home loan,apply_loan,,,home loan,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to report a lost card,lost_card,,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I'm looking to get a loan,apply_loan,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I want to check my account balance for yesterday,check_balance,,,,,,,yesterday,"Your current account balance is ₹25,000."
+I want to know about my account,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to check my balance,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+I want to close my current account,close_account,,current,,,,,,"To close your account, please confirm the account number and reason. We will guide you with next steps."
+I have lost my card,lost_card,,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+What is the interest rate for a car loan?,get_interest_rate,,,car loan,,,,,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
+I need to transfer 2000 from my savings account to checking,transfer_money,,savings,checking,,2000,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I want to know my account details,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+How can I check my balance?,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+I need to open a new account,create_account,,,,,,,,"You can open a new account online in minutes. I can guide you through the documents required (ID proof, address proof)."
+I want to know about my savings account,account_info,,savings,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to apply for a new card,apply_card,,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I want to know the interest rate for a student loan,get_interest_rate,,,student loan,,,,,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
+I need to know my balance,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+I need to transfer money to a friend's account,transfer_money,,,,,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I have lost my mastercard,lost_card,mastercard,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I want to know about my account,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+How can I get a car loan?,apply_loan,,,car loan,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I want to check my account balance on 01-01-2025,check_balance,,,,,,01-01-2025,,"Your current account balance is ₹25,000."
+I need to find a branch,get_branch_details,,,,,,,,You can locate branches using our branch locator on the website or app. Want me to find the nearest one?
+I want to transfer funds from my current account,transfer_money,,current,,,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I need to report a lost debit card,lost_card,debit card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I need to apply for a new credit card,apply_card,credit card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I want to know my account details,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to send money to account AC1234567,transfer_money,,,,,AC1234567,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+What's the interest rate on a mortgage loan?,get_interest_rate,,,mortgage loan,,,,,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
+I have lost my mastercard,lost_card,mastercard,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+What's the process for getting a gold loan?,apply_loan,,,gold loan,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I want to check my balance,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+I want to know my account number,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to apply for a new card,apply_card,,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I need to transfer 5000 rupees to account 12345678,transfer_money,,,,5000 rupees,12345678,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I have a question about my account,greeting_hi,,,,,,,,This is a default reply for intent 'greeting_hi'. (Please customize me!)
+I need to close my account,close_account,,,,,,,,"To close your account, please confirm the account number and reason. We will guide you with next steps."
+I want to know the interest rate for a property loan,get_interest_rate,,,property loan,,,,,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
+I have lost my credit card,lost_card,credit card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I need to transfer funds from my current account,transfer_money,,current,,,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I want to apply for a personal loan,apply_loan,,,personal loan,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to find a branch,get_branch_details,,,,,,,,You can locate branches using our branch locator on the website or app. Want me to find the nearest one?
+I want to apply for a new visa card,apply_card,visa card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I need to know my balance,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+I want to know my account details,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to transfer money to a friend,transfer_money,,,,,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+How can I open a new account?,create_account,,,,,,,,"You can open a new account online in minutes. I can guide you through the documents required (ID proof, address proof)."
+I need to transfer 10000 rupees from my savings,transfer_money,,savings,,10000,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I'd like to get a home loan,apply_loan,,,home loan,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to report a lost card,lost_card,,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I'm looking to get a loan,apply_loan,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I want to check my account balance for yesterday,check_balance,,,,,,,yesterday,"Your current account balance is ₹25,000."
+I want to know about my account,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to check my balance,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+I want to close my current account,close_account,,current,,,,,,"To close your account, please confirm the account number and reason. We will guide you with next steps."
+I have lost my card,lost_card,,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+What is the interest rate for a car loan?,get_interest_rate,,,car loan,,,,,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
+I need to transfer 2000 from my savings account to checking,transfer_money,,savings,checking,,2000,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I want to know my account details,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+How can I check my balance?,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+I need to open a new account,create_account,,,,,,,,"You can open a new account online in minutes. I can guide you through the documents required (ID proof, address proof)."
+I want to know about my savings account,account_info,,savings,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to apply for a new card,apply_card,,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I want to know the interest rate for a student loan,get_interest_rate,,,student loan,,,,,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
+I need to know my balance,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+I need to transfer money to a friend's account,transfer_money,,,,,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I have lost my mastercard,lost_card,mastercard,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I want to know about my account,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+How can I get a car loan?,apply_loan,,,car loan,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I want to check my account balance on 01-01-2025,check_balance,,,,,,01-01-2025,,"Your current account balance is ₹25,000."
+I need to find a branch,get_branch_details,,,,,,,,You can locate branches using our branch locator on the website or app. Want me to find the nearest one?
+I want to transfer funds from my current account,transfer_money,,current,,,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I need to report a lost debit card,lost_card,debit card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I need to apply for a new credit card,apply_card,credit card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I want to know my account details,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to send money to account AC1234567,transfer_money,,,,,AC1234567,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+What's the interest rate on a mortgage loan?,get_interest_rate,,,mortgage loan,,,,,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
+I have lost my mastercard,lost_card,mastercard,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+What's the process for getting a gold loan?,apply_loan,,,gold loan,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I want to check my balance,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+I want to know my account number,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to apply for a new card,apply_card,,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I need to transfer 5000 rupees to account 12345678,transfer_money,,,,5000 rupees,12345678,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I have a question about my account,greeting_hi,,,,,,,,This is a default reply for intent 'greeting_hi'. (Please customize me!)
+I need to close my account,close_account,,,,,,,,"To close your account, please confirm the account number and reason. We will guide you with next steps."
+I want to know the interest rate for a property loan,get_interest_rate,,,property loan,,,,,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
+I have lost my credit card,lost_card,credit card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I need to transfer funds from my current account,transfer_money,,current,,,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I want to apply for a personal loan,apply_loan,,,personal loan,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to find a branch,get_branch_details,,,,,,,,You can locate branches using our branch locator on the website or app. Want me to find the nearest one?
+I want to apply for a new visa card,apply_card,visa card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I need to know my balance,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+I want to know my account details,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to transfer money to a friend,transfer_money,,,,,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+How can I open a new account?,create_account,,,,,,,,"You can open a new account online in minutes. I can guide you through the documents required (ID proof, address proof)."
+I need to transfer 10000 rupees from my savings,transfer_money,,savings,,10000,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I'd like to get a home loan,apply_loan,,,home loan,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to report a lost card,lost_card,,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I'm looking to get a loan,apply_loan,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I want to check my account balance for yesterday,check_balance,,,,,,,yesterday,"Your current account balance is ₹25,000."
+I want to know about my account,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to check my balance,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+I want to close my current account,close_account,,current,,,,,,"To close your account, please confirm the account number and reason. We will guide you with next steps."
+I have lost my card,lost_card,,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+What is the interest rate for a car loan?,get_interest_rate,,,car loan,,,,,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
+I need to transfer 2000 from my savings account to checking,transfer_money,,savings,checking,,2000,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I want to know my account details,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+How can I check my balance?,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+I need to open a new account,create_account,,,,,,,,"You can open a new account online in minutes. I can guide you through the documents required (ID proof, address proof)."
+I want to know about my savings account,account_info,,savings,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to apply for a new card,apply_card,,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I want to know the interest rate for a student loan,get_interest_rate,,,student loan,,,,,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
+I need to know my balance,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+I need to transfer money to a friend's account,transfer_money,,,,,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I have lost my mastercard,lost_card,mastercard,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I want to know about my account,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+How can I get a car loan?,apply_loan,,,car loan,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I want to check my account balance on 01-01-2025,check_balance,,,,,,01-01-2025,,"Your current account balance is ₹25,000."
+I need to find a branch,get_branch_details,,,,,,,,You can locate branches using our branch locator on the website or app. Want me to find the nearest one?
+I want to transfer funds from my current account,transfer_money,,current,,,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I need to report a lost debit card,lost_card,debit card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I need to apply for a new credit card,apply_card,credit card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I want to know my account details,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to send money to account AC1234567,transfer_money,,,,,AC1234567,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+What's the interest rate on a mortgage loan?,get_interest_rate,,,mortgage loan,,,,,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
+I have lost my mastercard,lost_card,mastercard,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+What's the process for getting a gold loan?,apply_loan,,,gold loan,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I want to check my balance,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+I want to know my account number,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to apply for a new card,apply_card,,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I need to transfer 5000 rupees to account 12345678,transfer_money,,,,5000 rupees,12345678,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I have a question about my account,greeting_hi,,,,,,,,This is a default reply for intent 'greeting_hi'. (Please customize me!)
+I need to close my account,close_account,,,,,,,,"To close your account, please confirm the account number and reason. We will guide you with next steps."
+I want to know the interest rate for a property loan,get_interest_rate,,,property loan,,,,,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
+I have lost my credit card,lost_card,credit card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I need to transfer funds from my current account,transfer_money,,current,,,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I want to apply for a personal loan,apply_loan,,,personal loan,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to find a branch,get_branch_details,,,,,,,,You can locate branches using our branch locator on the website or app. Want me to find the nearest one?
+I want to apply for a new visa card,apply_card,visa card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I need to know my balance,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+I want to know my account details,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to transfer money to a friend,transfer_money,,,,,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+How can I open a new account?,create_account,,,,,,,,"You can open a new account online in minutes. I can guide you through the documents required (ID proof, address proof)."
+I need to transfer 10000 rupees from my savings,transfer_money,,savings,,10000,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I'd like to get a home loan,apply_loan,,,home loan,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to report a lost card,lost_card,,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I'm looking to get a loan,apply_loan,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I want to check my account balance for yesterday,check_balance,,,,,,,yesterday,"Your current account balance is ₹25,000."
+I want to know about my account,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to check my balance,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+I want to close my current account,close_account,,current,,,,,,"To close your account, please confirm the account number and reason. We will guide you with next steps."
+I have lost my card,lost_card,,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+What is the interest rate for a car loan?,get_interest_rate,,,car loan,,,,,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
+I need to transfer 2000 from my savings account to checking,transfer_money,,savings,checking,,2000,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I want to know my account details,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+How can I check my balance?,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+I need to open a new account,create_account,,,,,,,,"You can open a new account online in minutes. I can guide you through the documents required (ID proof, address proof)."
+I want to know about my savings account,account_info,,savings,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to apply for a new card,apply_card,,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I want to know the interest rate for a student loan,get_interest_rate,,,student loan,,,,,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
+I need to know my balance,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+I need to transfer money to a friend's account,transfer_money,,,,,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I have lost my mastercard,lost_card,mastercard,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I want to know about my account,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+How can I get a car loan?,apply_loan,,,car loan,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I want to check my account balance on 01-01-2025,check_balance,,,,,,01-01-2025,,"Your current account balance is ₹25,000."
+I need to find a branch,get_branch_details,,,,,,,,You can locate branches using our branch locator on the website or app. Want me to find the nearest one?
+I want to transfer funds from my current account,transfer_money,,current,,,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I need to report a lost debit card,lost_card,debit card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I need to apply for a new credit card,apply_card,credit card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I want to know my account details,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to send money to account AC1234567,transfer_money,,,,,AC1234567,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+What's the interest rate on a mortgage loan?,get_interest_rate,,,mortgage loan,,,,,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
+I have lost my mastercard,lost_card,mastercard,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+What's the process for getting a gold loan?,apply_loan,,,gold loan,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I want to check my balance,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+I want to know my account number,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to apply for a new card,apply_card,,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I need to transfer 5000 rupees to account 12345678,transfer_money,,,,5000 rupees,12345678,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I have a question about my account,greeting_hi,,,,,,,,This is a default reply for intent 'greeting_hi'. (Please customize me!)
+I need to close my account,close_account,,,,,,,,"To close your account, please confirm the account number and reason. We will guide you with next steps."
+I want to know the interest rate for a property loan,get_interest_rate,,,property loan,,,,,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
+I have lost my credit card,lost_card,credit card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I need to transfer funds from my current account,transfer_money,,current,,,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I want to apply for a personal loan,apply_loan,,,personal loan,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to find a branch,get_branch_details,,,,,,,,You can locate branches using our branch locator on the website or app. Want me to find the nearest one?
+I want to apply for a new visa card,apply_card,visa card,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I need to know my balance,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+I want to know my account details,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to transfer money to a friend,transfer_money,,,,,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+How can I open a new account?,create_account,,,,,,,,"You can open a new account online in minutes. I can guide you through the documents required (ID proof, address proof)."
+I need to transfer 10000 rupees from my savings,transfer_money,,savings,,10000,,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+I'd like to get a home loan,apply_loan,,,home loan,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to report a lost card,lost_card,,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+I'm looking to get a loan,apply_loan,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I want to check my account balance for yesterday,check_balance,,,,,,,yesterday,"Your current account balance is ₹25,000."
+I want to know about my account,account_info,,,,,,,,"We offer personal, home, car and business loans. Rates depend on loan type — which one do you want details for?"
+I need to check my balance,check_balance,,,,,,,,"Your current account balance is ₹25,000."
+I want to close my current account,close_account,,current,,,,,,"To close your account, please confirm the account number and reason. We will guide you with next steps."
+I have lost my card,lost_card,,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
+What is the interest rate for a car loan?,get_interest_rate,,,car loan,,,,,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
+I need to transfer 2000 from my savings account to checking,transfer_money,,savings,checking,,2000,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.

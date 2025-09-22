@@ -1,0 +1,13 @@
+{
+  "labels":[
+    "transfer_money",
+    "check_balance",
+    "account_info",
+    "get_interest_rate",
+    "get_branch_details",
+    "greeting_hi",
+    "greeting_bye"
+  ],
+  "threshold":0.0,
+  "positive_label":null
+}

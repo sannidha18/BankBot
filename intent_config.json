@@ -1,0 +1,60 @@
+{
+  "transfer_money": [
+    "Transfer ₹5000 from my savings to checking",
+    "Send Rs. 2000 to account 123456",
+    "I want to move ₹15000 to account 987654",
+    "Deposit Rs 10000 into my account",
+    "Please transfer ₹500 to my brother's account",
+    "Can you send Rs. 7500 to account number 112233",
+    "Move ₹2000 from my current account to savings",
+    "Pay ₹3000 to my electricity bill account 556677",
+    "Wire transfer ₹25000 to account 888999"
+  ],
+  "check_balance": [
+    "What's my current balance?",
+    "Show me my savings account balance",
+    "How much money do I have in my checking account?",
+    "Check my account funds",
+    "Tell me my available balance",
+    "Can you display my balance please?"
+  ],
+  "account_info": [
+    "Show my account number",
+    "What is my account number?",
+    "Give me details of my account",
+    "Show account information",
+    "I forgot my account number",
+    "Can you tell me my account details?"
+  ],
+  "get_interest_rate": [
+    "What is the interest rate for savings?",
+    "Tell me the loan interest rate",
+    "Current interest rate for fixed deposits",
+    "Interest rate on personal loan",
+    "Give me details of the interest rates",
+    "What is the home loan rate today?"
+  ],
+  "get_branch_details": [
+    "Show me the nearest branch address",
+    "Branch location in Chennai",
+    "Give me details of the main branch",
+    "Where is the branch in Bangalore?",
+    "Branch phone number in Mumbai",
+    "Find the branch location in Delhi"
+  ],
+  "greeting_hi": [
+    "hey hi!",
+    "Hey there!",
+    "whasp",
+    "hey buddy",
+    "how are you?",
+    "hello!"
+  ],
+  "greeting_bye": [
+    "thank you so much",
+    "ok bye",
+    "see you later",
+    "thanks for your help",
+    "bye"
+  ]
+}

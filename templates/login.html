@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bank Portal Login</title>
+  <style>
+    /* General reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    /* Animated background circles */
+    .circle {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      animation: float 6s infinite ease-in-out;
+    }
+
+    .circle:nth-child(1) {
+      width: 200px; height: 200px; top: -60px; left: -60px;
+    }
+    .circle:nth-child(2) {
+      width: 150px; height: 150px; bottom: 40px; right: 40px;
+      animation-delay: 2s;
+    }
+    .circle:nth-child(3) {
+      width: 100px; height: 100px; bottom: 100px; left: 120px;
+      animation-delay: 4s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-30px); }
+    }
+
+    /* Login box */
+    .login-container {
+      position: relative;
+      z-index: 2;
+      width: 350px;
+      padding: 40px;
+      border-radius: 15px;
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+      animation: slide-in 1s ease forwards;
+    }
+
+    @keyframes slide-in {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .login-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #1e3c72;
+      font-size: 24px;
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 12px 15px;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    .input-group input:focus {
+      border-color: #1e3c72;
+      box-shadow: 0 0 8px rgba(30,60,114,0.4);
+      outline: none;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      background: linear-gradient(90deg, #1e3c72, #2a5298);
+      color: white;
+      transition: 0.3s ease-in-out;
+    }
+
+    .btn:hover {
+      background: linear-gradient(90deg, #2a5298, #1e3c72);
+      box-shadow: 0 0 15px rgba(30,60,114,0.6);
+      transform: scale(1.03);
+    }
+
+    .flash {
+      margin-bottom: 15px;
+      text-align: center;
+      color: red;
+      font-size: 14px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- floating circles background -->
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+
+  <div class="login-container">
+    <h2>Bank Portal Login</h2>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="flash">
+          {% for message in messages %}
+            <p>{{ message }}</p>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    <form method="POST">
+      <div class="input-group">
+        <input type="text" name="username" placeholder="Enter Username" required>
+      </div>
+      <div class="input-group">
+        <input type="password" name="password" placeholder="Enter Password" required>
+      </div>
+      <button type="submit" class="btn">Login</button>
+    </form>
+  </div>
+
+</body>
+</html>

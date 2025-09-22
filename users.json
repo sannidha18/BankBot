@@ -1,0 +1,32 @@
+{
+  "alice": {
+    "password": "alice123",
+    "name": "Alice",
+    "balance": 80000.0,
+    "account": "100001"
+  },
+  "bob": {
+    "password": "bob123",
+    "name": "Bob",
+    "balance": 75000.0,
+    "account": "100002"
+  },
+  "carol": {
+    "password": "carol123",
+    "name": "Carol",
+    "balance": 110000.0,
+    "account": "100003"
+  },
+  "dave": {
+    "password": "dave123",
+    "name": "Dave",
+    "balance": 100000.0,
+    "account": "100004"
+  },
+  "eve": {
+    "password": "eve123",
+    "name": "Eve",
+    "balance": 105000.0,
+    "account": "100005"
+  }
+}

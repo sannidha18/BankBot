@@ -1,0 +1,1417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureBank - AI Assistant</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #4c51bf;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #4a5568;
+            font-weight: 500;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #4c51bf;
+            background: rgba(102, 126, 234, 0.1);
+        }
+
+        .nav-link.active {
+            background: linear-gradient(135deg, #4c51bf, #667eea);
+            color: white;
+        }
+
+        /* Chat Container */
+        .chat-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            height: calc(100vh - 200px);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px 20px 0 0;
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .bot-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #4c51bf, #667eea);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .chat-info h3 {
+            color: #2d3748;
+            font-size: 1.3rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .chat-info p {
+            color: #718096;
+            font-size: 0.9rem;
+        }
+
+        .status-indicator {
+            width: 12px;
+            height: 12px;
+            background: #48bb78;
+            border-radius: 50%;
+            margin-left: auto;
+            position: relative;
+        }
+
+        .status-indicator::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #48bb78;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(2); opacity: 0; }
+        }
+
+        /* Chat Messages */
+        .chat-messages {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            scrollbar-width: thin;
+            scrollbar-color: #cbd5e0 transparent;
+        }
+
+        .chat-messages::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .chat-messages::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .chat-messages::-webkit-scrollbar-thumb {
+            background: #cbd5e0;
+            border-radius: 3px;
+        }
+
+        .message {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .message.user {
+            flex-direction: row-reverse;
+        }
+
+        .message-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .bot-message-avatar {
+            background: linear-gradient(135deg, #4c51bf, #667eea);
+        }
+
+        .user-message-avatar {
+            background: linear-gradient(135deg, #48bb78, #38a169);
+        }
+
+        .message-content {
+            max-width: 70%;
+            padding: 1rem 1.5rem;
+            border-radius: 20px;
+            position: relative;
+            line-height: 1.5;
+            white-space: pre-line;
+        }
+
+        .bot-message {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            color: #2d3748;
+        }
+
+        .user-message {
+            background: linear-gradient(135deg, #4c51bf, #667eea);
+            color: white;
+        }
+
+        .message-time {
+            font-size: 0.75rem;
+            opacity: 0.7;
+            margin-top: 0.5rem;
+        }
+
+        /* Quick Suggestions */
+        .quick-suggestions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .suggestion-btn {
+            background: rgba(102, 126, 234, 0.1);
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            color: #4c51bf;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+        }
+
+        .suggestion-btn:hover {
+            background: rgba(102, 126, 234, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Typing Indicator */
+        .typing-indicator {
+            display: none;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 0;
+        }
+
+        .typing-dots {
+            display: flex;
+            gap: 0.3rem;
+        }
+
+        .typing-dot {
+            width: 8px;
+            height: 8px;
+            background: #4c51bf;
+            border-radius: 50%;
+            animation: typing 1.5s infinite ease-in-out;
+        }
+
+        .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+        .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes typing {
+            0%, 80%, 100% { transform: scale(1); opacity: 0.5; }
+            40% { transform: scale(1.2); opacity: 1; }
+        }
+
+        /* Input Area */
+        .chat-input {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 0 0 20px 20px;
+            padding: 1.5rem 2rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .input-container {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-end;
+        }
+
+        .input-wrapper {
+            flex: 1;
+            position: relative;
+        }
+
+        #messageInput {
+            width: 100%;
+            border: 2px solid #e2e8f0;
+            border-radius: 25px;
+            padding: 1rem 1.5rem;
+            font-size: 1rem;
+            resize: none;
+            min-height: 50px;
+            max-height: 120px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        #messageInput:focus {
+            border-color: #4c51bf;
+        }
+
+        #messageInput::placeholder {
+            color: #a0aec0;
+        }
+
+        .send-btn {
+            background: linear-gradient(135deg, #4c51bf, #667eea);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .send-btn:hover:not(:disabled) {
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .send-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Welcome Message */
+        .welcome-message {
+            text-align: center;
+            padding: 3rem 2rem;
+            color: #718096;
+        }
+
+        .welcome-message h3 {
+            color: #2d3748;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .welcome-message p {
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .welcome-suggestions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .welcome-suggestion {
+            background: rgba(102, 126, 234, 0.1);
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            padding: 1rem;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+
+        .welcome-suggestion:hover {
+            background: rgba(102, 126, 234, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .welcome-suggestion i {
+            color: #4c51bf;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .welcome-suggestion h4 {
+            color: #2d3748;
+            margin-bottom: 0.3rem;
+        }
+
+        .welcome-suggestion p {
+            color: #718096;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .action-btn {
+            background: #4c51bf;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+        }
+
+        .action-btn:hover {
+            background: #3a3f8f;
+            transform: translateY(-2px);
+        }
+
+        .action-btn.secondary {
+            background: #e2e8f0;
+            color: #4a5568;
+        }
+
+        .action-btn.secondary:hover {
+            background: #cbd5e0;
+        }
+
+        /* Transfer Modal */
+        .modal {
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            justify-content: center;
+            align-items: center;
+            display: none;
+        }
+
+        .modal-content {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-content h3 {
+            margin-bottom: 1.5rem;
+            color: #2d3748;
+        }
+
+        .modal-content input {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 8px;
+            border: 2px solid #e2e8f0;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .modal-content input:focus {
+            border-color: #4c51bf;
+        }
+
+        .modal-content button {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .modal-content button[type="submit"] {
+            background: #4c51bf;
+            color: #fff;
+        }
+
+        .modal-content button[type="submit"]:hover {
+            background: #3a3f8f;
+        }
+
+        .close-btn {
+            background: #e53e3e !important;
+            color: #fff !important;
+        }
+
+        .close-btn:hover {
+            background: #c53030 !important;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .chat-container {
+                margin: 1rem auto;
+                height: calc(100vh - 150px);
+            }
+
+            .message-content {
+                max-width: 85%;
+            }
+
+            .welcome-suggestions {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+            /* Add these styles to your existing CSS in chat.html */
+
+/* Intent Display Styles */
+.intent-display {
+    background: rgba(76, 81, 191, 0.1);
+    border: 1px solid rgba(76, 81, 191, 0.3);
+    color: #4c51bf;
+    padding: 0.4rem 0.8rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-top: 0.8rem;
+    margin-bottom: 0.3rem;
+    display: inline-block;
+    max-width: fit-content;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+/* Transaction Container Styles */
+.transactions-container {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    margin-top: 1rem;
+    padding: 1rem;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.transaction-item {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 0.8rem;
+    transition: all 0.2s ease;
+}
+
+.transaction-item:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-color: #cbd5e0;
+}
+
+.transaction-item:last-child {
+    margin-bottom: 0;
+}
+
+.transaction-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.8rem;
+}
+
+.transaction-type {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.type-icon {
+    font-size: 1.2rem;
+}
+
+.type-text {
+    font-weight: 600;
+    color: #2d3748;
+    font-size: 0.9rem;
+}
+
+.transaction-amount {
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.amount-credit {
+    color: #38a169;
+}
+
+.amount-debit {
+    color: #e53e3e;
+}
+
+.transaction-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.transaction-date {
+    color: #718096;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.counterparty {
+    color: #4a5568;
+    font-size: 0.85rem;
+    background: #edf2f7;
+    padding: 0.3rem 0.6rem;
+    border-radius: 6px;
+    display: inline-block;
+    max-width: fit-content;
+}
+
+.transaction-desc {
+    color: #718096;
+    font-size: 0.8rem;
+    font-style: italic;
+}
+
+.balance-after {
+    color: #2d3748;
+    font-size: 0.8rem;
+    font-weight: 500;
+    background: #e6fffa;
+    padding: 0.3rem 0.6rem;
+    border-radius: 6px;
+    border: 1px solid #b2f5ea;
+    display: inline-block;
+    max-width: fit-content;
+}
+
+.no-transactions {
+    text-align: center;
+    color: #718096;
+    padding: 2rem;
+    font-style: italic;
+}
+
+/* Responsive Styles for Transactions */
+@media (max-width: 768px) {
+    .transaction-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .transaction-amount {
+        font-size: 1rem;
+    }
+    
+    .transactions-container {
+        max-height: 300px;
+    }
+    
+    .transaction-item {
+        padding: 0.8rem;
+    }
+}
+
+/* Enhanced message content for better formatting */
+.message-content {
+    max-width: 70%;
+    padding: 1rem 1.5rem;
+    border-radius: 20px;
+    position: relative;
+    line-height: 1.5;
+    white-space: pre-line;
+}
+
+.bot-message .transactions-container {
+    margin-top: 1rem;
+    margin-left: -0.5rem;
+    margin-right: -0.5rem;
+}
+
+/* Scrollbar for transaction container */
+.transactions-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.transactions-container::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 3px;
+}
+
+.transactions-container::-webkit-scrollbar-thumb {
+    background: #cbd5e0;
+    border-radius: 3px;
+}
+
+.transactions-container::-webkit-scrollbar-thumb:hover {
+    background: #a0aec0;
+}
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #f3f3f3;
+            border-top: 2px solid #4c51bf;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-university"></i>
+                SecureBank
+            </div>
+            <nav class="nav-links">
+                <a href="/portal/dashboard" class="nav-link">
+                    <i class="fas fa-tachometer-alt"></i>Dashboard
+                </a>
+                <a href="/portal/transactions" class="nav-link">
+                    <i class="fas fa-exchange-alt"></i>Transactions
+                </a>
+                <a href="/portal/account" class="nav-link">
+                    <i class="fas fa-user-circle"></i>Account
+                </a>
+                <a href="/portal/chat" class="nav-link active">
+                    <i class="fas fa-robot"></i>Chatbot
+                </a>
+                <a href="/logout" class="nav-link">
+                    <i class="fas fa-sign-out-alt"></i>Logout
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Chat Container -->
+    <div class="chat-container">
+        <!-- Chat Header -->
+        <div class="chat-header">
+            <div class="bot-avatar">
+                <i class="fas fa-robot"></i>
+            </div>
+            <div class="chat-info">
+                <h3>SecureBank AI Assistant</h3>
+                <p>I'm here to help with your banking needs 24/7</p>
+            </div>
+            <div class="status-indicator" title="Online"></div>
+        </div>
+
+        <!-- Chat Messages -->
+        <div class="chat-messages" id="chatMessages">
+            <div class="welcome-message">
+                <h3>👋 Welcome to SecureBank AI Assistant!</h3>
+                <p>I can help you with balance inquiries, transfers, account information, transaction history, loan applications, and much more. Just ask me anything!</p>
+                
+            </div>
+        </div>
+
+        <!-- Typing Indicator -->
+        <div class="typing-indicator" id="typingIndicator">
+            <div class="message-avatar bot-message-avatar">
+                <i class="fas fa-robot"></i>
+            </div>
+            <div class="typing-dots">
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+            </div>
+            <span style="color: #718096; font-size: 0.9rem;">AI Assistant is typing...</span>
+        </div>
+
+        <!-- Chat Input -->
+        <div class="chat-input">
+            <div class="input-container">
+                <div class="input-wrapper">
+                    <textarea 
+                        id="messageInput" 
+                        placeholder="Ask me about your balance, transfers, loans, or anything else..."
+                        rows="1"
+                    ></textarea>
+                </div>
+                <button class="send-btn" id="sendBtn" onclick="sendMessage()">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Transfer Modal -->
+    <div class="modal" id="transferModal">
+        <div class="modal-content">
+            <h3>Secure Money Transfer</h3>
+            <form id="transferForm">
+                <input type="text" id="recipient" placeholder="Recipient Name / Account No." required>
+                <input type="number" id="amount" placeholder="Amount" required>
+                <input type="password" id="password" placeholder="Enter Password" required>
+                <button type="submit">Transfer</button>
+                <button type="button" id="closeModal" class="close-btn">Cancel</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Global variables
+        let isWaitingForResponse = false;
+        let pendingTransfer = null;
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeChat();
+        });
+
+        function initializeChat() {
+            const messageInput = document.getElementById('messageInput');
+            const sendBtn = document.getElementById('sendBtn');
+            const transferModal = document.getElementById('transferModal');
+            const closeModal = document.getElementById('closeModal');
+            const transferForm = document.getElementById('transferForm');
+
+            // Auto-resize textarea
+            if (messageInput) {
+                messageInput.addEventListener('input', function() {
+                    this.style.height = 'auto';
+                    this.style.height = Math.min(this.scrollHeight, 120) + 'px';
+                });
+
+                // Send message on Enter (but allow Shift+Enter for new lines)
+                messageInput.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' && !e.shiftKey) {
+                        e.preventDefault();
+                        sendMessage();
+                    }
+                });
+
+                messageInput.focus();
+            }
+
+            // Close modal
+            if (closeModal && transferModal) {
+                closeModal.addEventListener('click', () => {
+                    transferModal.style.display = 'none';
+                });
+            }
+
+            // Handle transfer form
+            if (transferForm) {
+                transferForm.addEventListener('submit', handleTransferSubmit);
+            }
+        }
+
+        function sendQuickMessage(message) {
+            const welcomeMessage = document.querySelector('.welcome-message');
+            if (welcomeMessage) {
+                welcomeMessage.style.display = 'none';
+            }
+            
+            const messageInput = document.getElementById('messageInput');
+            if (messageInput) {
+                messageInput.value = message;
+                sendMessage();
+            }
+        }
+
+        function addMessage(content, isUser = false, showActions = false) {
+            const messagesContainer = document.getElementById('chatMessages');
+            if (!messagesContainer) return;
+
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${isUser ? 'user' : 'bot'}`;
+            
+            const time = new Date().toLocaleTimeString('en-US', { 
+                hour: '2-digit', 
+                minute: '2-digit',
+                hour12: true 
+            });
+                // Intent display for bot messages
+            let intentDisplay = '';
+            if (!isUser && intent && intent !== 'default') {
+                const intentLabels = {
+                    'check_balance': '💰 Balance Inquiry',
+                    'transfer_money': '💸 Money Transfer',
+                    'account_info': '👤 Account Info',
+                    'check_history': '📋 Transaction History',
+                    'apply_loan': '🏦 Loan Application',
+                    'get_interest_rate': '📊 Interest Rates',
+                    'card_info': '💳 Card Information',
+                    'lost_card': '🚨 Lost/Stolen Card',
+                    'create_account': '🆕 Account Opening',
+                    'get_branch_details': '🏢 Branch Locations',
+                    'greeting_hi': '👋 Greeting',
+                    'greeting_bye': '👋 Farewell',
+                    'predefined_query': '🤖 FAQ Response'
+                };
+        
+                const intentLabel = intentLabels[intent] || `🤖 ${intent.replace('_', ' ')}`;
+                intentDisplay = `<div class="intent-display">${intentLabel}</div>`;
+            }
+            messageDiv.innerHTML = `
+                <div class="message-avatar ${isUser ? 'user-message-avatar' : 'bot-message-avatar'}">
+                    <i class="fas fa-${isUser ? 'user' : 'robot'}"></i>
+                </div>
+                <div class="message-content ${isUser ? 'user-message' : 'bot-message'}">
+                    ${intentDisplay}
+                    ${content}
+                    <div class="message-time">${time}</div>
+                    ${showActions ? '<div class="action-buttons" id="lastMessageActions"></div>' : ''}
+                </div>
+            `;
+            
+            messagesContainer.appendChild(messageDiv);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            
+            return messageDiv;
+        }
+        function formatTransactions(transactions) {
+    if (!transactions || transactions.length === 0) {
+        return '<div class="no-transactions">No transactions found</div>';
+    }
+
+    let html = '<div class="transactions-container">';
+    
+    transactions.forEach((tx, index) => {
+        try {
+            const txDate = new Date(tx.timestamp);
+            const dateStr = txDate.toLocaleDateString('en-US', { 
+                month: 'short', 
+                day: 'numeric', 
+                year: 'numeric' 
+            });
+            const timeStr = txDate.toLocaleTimeString('en-US', { 
+                hour: '2-digit', 
+                minute: '2-digit',
+                hour12: true 
+            });
+            
+            const amount = parseFloat(tx.amount);
+            const isCredit = tx.type === 'transfer_in' || tx.type === 'deposit';
+            const isDebit = tx.type === 'transfer_out' || tx.type === 'withdraw';
+            
+            let typeIcon = '💰';
+            let typeText = tx.type.replace('_', ' ').toUpperCase();
+            let amountClass = '';
+            let amountPrefix = '';
+            
+            if (isCredit) {
+                typeIcon = '📈';
+                amountClass = 'amount-credit';
+                amountPrefix = '+';
+            } else if (isDebit) {
+                typeIcon = '📉';
+                amountClass = 'amount-debit';
+                amountPrefix = '-';
+            }
+            
+            // Handle recipient/sender info
+            let counterparty = '';
+            if (tx.to_account && tx.to_account !== '') {
+                if (tx.type === 'transfer_out') {
+                    counterparty = `<div class="counterparty">To: Account ${tx.to_account}</div>`;
+                } else if (tx.type === 'transfer_in') {
+                    counterparty = `<div class="counterparty">From: Account ${tx.to_account}</div>`;
+                }
+            }
+            
+            html += `
+                <div class="transaction-item">
+                    <div class="transaction-header">
+                        <div class="transaction-type">
+                            <span class="type-icon">${typeIcon}</span>
+                            <span class="type-text">${typeText}</span>
+                        </div>
+                        <div class="transaction-amount ${amountClass}">
+                            ${amountPrefix}₹${amount.toLocaleString('en-IN', { minimumFractionDigits: 2 })}
+                        </div>
+                    </div>
+                    <div class="transaction-details">
+                        <div class="transaction-date">${dateStr} at ${timeStr}</div>
+                        ${counterparty}
+                        ${tx.description ? `<div class="transaction-desc">${tx.description}</div>` : ''}
+                        ${tx.balance_after ? `<div class="balance-after">Balance: ₹${parseFloat(tx.balance_after).toLocaleString('en-IN', { minimumFractionDigits: 2 })}</div>` : ''}
+                    </div>
+                </div>
+            `;
+        } catch (error) {
+            console.error('Error formatting transaction:', error);
+        }
+    });
+    
+    html += '</div>';
+    return html;
+}
+
+
+        function showTypingIndicator() {
+            const typingIndicator = document.getElementById('typingIndicator');
+            const chatMessages = document.getElementById('chatMessages');
+            if (typingIndicator && chatMessages) {
+                typingIndicator.style.display = 'flex';
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+        }
+
+        function hideTypingIndicator() {
+            const typingIndicator = document.getElementById('typingIndicator');
+            if (typingIndicator) {
+                typingIndicator.style.display = 'none';
+            }
+        }
+
+        function addActionButtons(actions) {
+            const actionsContainer = document.getElementById('lastMessageActions');
+            if (actionsContainer) {
+                actions.forEach(action => {
+                    const btn = document.createElement('button');
+                    btn.className = `action-btn ${action.type || ''}`;
+                    btn.textContent = action.text;
+                    btn.onclick = action.onClick;
+                    actionsContainer.appendChild(btn);
+                });
+            }
+        }
+
+        // Replace these functions in your chat.html JavaScript section
+
+function addMessage(content, isUser = false, showActions = false, intent = null) {
+    const messagesContainer = document.getElementById('chatMessages');
+    if (!messagesContainer) return;
+
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `message ${isUser ? 'user' : 'bot'}`;
+    
+    const time = new Date().toLocaleTimeString('en-US', { 
+        hour: '2-digit', 
+        minute: '2-digit',
+        hour12: true 
+    });
+    
+    // Intent display for bot messages
+    let intentDisplay = '';
+    if (!isUser && intent && intent !== 'default') {
+        const intentLabels = {
+            'check_balance': '💰 Balance Inquiry',
+            'transfer_money': '💸 Money Transfer',
+            'account_info': '👤 Account Info',
+            'check_history': '📋 Transaction History',
+            'apply_loan': '🏦 Loan Application',
+            'get_interest_rate': '📊 Interest Rates',
+            'card_info': '💳 Card Information',
+            'lost_card': '🚨 Lost/Stolen Card',
+            'create_account': '🆕 Account Opening',
+            'get_branch_details': '🏢 Branch Locations',
+            'greeting_hi': '👋 Greeting',
+            'greeting_bye': '👋 Farewell',
+            'predefined_query': '🤖 FAQ Response'
+        };
+        
+        const intentLabel = intentLabels[intent] || `🤖 ${intent.replace('_', ' ')}`;
+        intentDisplay = `<div class="intent-display">${intentLabel}</div>`;
+    }
+    
+    messageDiv.innerHTML = `
+        <div class="message-avatar ${isUser ? 'user-message-avatar' : 'bot-message-avatar'}">
+            <i class="fas fa-${isUser ? 'user' : 'robot'}"></i>
+        </div>
+        <div class="message-content ${isUser ? 'user-message' : 'bot-message'}">
+            ${intentDisplay}
+            ${content}
+            <div class="message-time">${time}</div>
+            ${showActions ? '<div class="action-buttons" id="lastMessageActions"></div>' : ''}
+        </div>
+    `;
+    
+    messagesContainer.appendChild(messageDiv);
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    
+    return messageDiv;
+}
+
+    function formatTransactions(transactions) {
+        if (!transactions || transactions.length === 0) {
+            return '<div class="no-transactions">No transactions found</div>';
+    }
+
+        let html = '<div class="transactions-container">';
+    
+        transactions.forEach((tx, index) => {
+            try {
+                const txDate = new Date(tx.timestamp);
+                const dateStr = txDate.toLocaleDateString('en-US', { 
+                    month: 'short', 
+                    day: 'numeric', 
+                    year: 'numeric' 
+            });
+                const timeStr = txDate.toLocaleTimeString('en-US', { 
+                    hour: '2-digit', 
+                    minute: '2-digit',
+                    hour12: true 
+            });
+            
+                const amount = parseFloat(tx.amount);
+                const isCredit = tx.type === 'transfer_in' || tx.type === 'deposit';
+                const isDebit = tx.type === 'transfer_out' || tx.type === 'withdraw';
+            
+                let typeIcon = '💰';
+                let typeText = tx.type.replace('_', ' ').toUpperCase();
+                let amountClass = '';
+                let amountPrefix = '';
+            
+                if (isCredit) {
+                    typeIcon = '📈';
+                    amountClass = 'amount-credit';
+                    amountPrefix = '+';
+            }     else if (isDebit) {
+                    typeIcon = '📉';
+                    amountClass = 'amount-debit';
+                    amountPrefix = '-';
+            }
+            
+            // Handle recipient/sender info
+                let counterparty = '';
+                if (tx.to_account && tx.to_account !== '') {
+                    if (tx.type === 'transfer_out') {
+                        counterparty = `<div class="counterparty">To: Account ${tx.to_account}</div>`;
+                }     else if (tx.type === 'transfer_in') {
+                        counterparty = `<div class="counterparty">From: Account ${tx.to_account}</div>`;
+                }
+            }
+            
+                html += `
+                    <div class="transaction-item">
+                        <div class="transaction-header">
+                            <div class="transaction-type">
+                                <span class="type-icon">${typeIcon}</span>
+                                <span class="type-text">${typeText}</span>
+                            </div>
+                            <div class="transaction-amount ${amountClass}">
+                                ${amountPrefix}₹${amount.toLocaleString('en-IN', { minimumFractionDigits: 2 })}
+                            </div>
+                        </div>
+                        <div class="transaction-details">
+                            <div class="transaction-date">${dateStr} at ${timeStr}</div>
+                            ${counterparty}
+                            ${tx.description ? `<div class="transaction-desc">${tx.description}</div>` : ''}
+                            ${tx.balance_after ? `<div class="balance-after">Balance: ₹${parseFloat(tx.balance_after).toLocaleString('en-IN', { minimumFractionDigits: 2 })}</div>` : ''}
+                        </div>
+                    </div>
+                `;
+            } catch (error) {
+                console.error('Error formatting transaction:', error);
+        }
+    });
+    
+        html += '</div>';
+        return html;
+}
+
+// Enhanced sendMessage function
+async function sendMessage() {
+    const messageInput = document.getElementById('messageInput');
+    const sendBtn = document.getElementById('sendBtn');
+    
+    if (!messageInput) return;
+    
+    const message = messageInput.value.trim();
+    if (!message || isWaitingForResponse) return;
+    
+    // Hide welcome message if it exists
+    const welcomeMessage = document.querySelector('.welcome-message');
+    if (welcomeMessage) {
+        welcomeMessage.style.display = 'none';
+    }
+    
+    // Add user message
+    addMessage(message, true);
+    messageInput.value = '';
+    messageInput.style.height = 'auto';
+    
+    isWaitingForResponse = true;
+    if (sendBtn) sendBtn.disabled = true;
+    showTypingIndicator();
+    
+    try {
+        const response = await fetch('/portal/chat', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ message: message })
+        });
+
+        const data = await response.json();
+        
+        hideTypingIndicator();
+        
+        if (data.error) {
+            addMessage(`❌ ${data.error}`, false);
+        } else {
+            let responseContent = data.response;
+            
+            // Handle transaction display
+            if (data.action === 'show_transactions' && data.data && data.data.transactions) {
+                responseContent += '<br><br>' + formatTransactions(data.data.transactions);
+            }
+            
+            const botMessageDiv = addMessage(responseContent, false, true, data.intent);
+            
+            // Handle specific actions
+            const actions = [];
+            
+            if (data.action === 'awaiting_confirmation') {
+                actions.push({
+                    text: '✅ Confirm Transfer',
+                    onClick: () => confirmTransfer(data.data)
+                });
+                actions.push({
+                    text: '❌ Cancel',
+                    type: 'secondary',
+                    onClick: () => sendQuickMessage('Cancel transfer')
+                });
+            } else if (data.action === 'show_transactions') {
+                actions.push({
+                    text: '📄 View All Transactions',
+                    onClick: () => window.open('/portal/transactions', '_blank')
+                });
+            } else if (data.action === 'block_card') {
+                actions.push({
+                    text: '🔒 Block Card Now',
+                    onClick: () => sendQuickMessage('Yes, block my card immediately')
+                });
+            } else if (data.action === 'show_transfer_modal') {
+                actions.push({
+                    text: '💸 Transfer Money',
+                    onClick: showTransferModal
+                });
+            }
+            
+            if (actions.length > 0) {
+                setTimeout(() => addActionButtons(actions), 500);
+            }
+        }
+        
+    } catch (error) {
+        hideTypingIndicator();
+        addMessage('❌ Sorry, I encountered an error. Please try again.', false);
+        console.error('Chat error:', error);
+    } finally {
+        isWaitingForResponse = false;
+        if (sendBtn) sendBtn.disabled = false;
+    }
+}
+
+        function showTransferModal() {
+            const transferModal = document.getElementById('transferModal');
+            if (transferModal) {
+                transferModal.style.display = 'flex';
+            }
+        }
+
+        // Declare updateBalance once at top-level (outside any function)
+        function updateBalance(newBalance) {
+            const balanceElement = document.getElementById('primaryBalance');
+            if (balanceElement) {
+                balanceElement.textContent = `₹${newBalance.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+  }
+}
+
+async function confirmTransfer(transferData) {
+  if (!transferData) return;
+
+  try {
+    addMessage('Confirming transfer...', true);
+    showTypingIndicator();
+
+    const response = await fetch('/api/execute_transfer', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(transferData),
+    });
+
+    const data = await response.json();
+    hideTypingIndicator();
+
+    if (data.ok) {
+      addMessage(`✅ ${data.message}\n\nYour new balance: ₹${data.new_balance.toLocaleString()}`, false);
+      if (data.new_balance !== undefined) {
+        updateBalance(data.new_balance);
+      }
+    } else {
+      addMessage(`❌ Transfer failed: ${data.error}`, false);
+    }
+  } catch (error) {
+    hideTypingIndicator();
+    addMessage('❌ Transfer failed. Please try again.', false);
+    console.error('Transfer error:', error);
+  }
+}
+
+
+        async function handleTransferSubmit(e) {
+            e.preventDefault();
+
+            const recipient = document.getElementById('recipient')?.value.trim();
+            const amount = parseFloat(document.getElementById('amount')?.value || 0);
+            const password = document.getElementById('password')?.value;
+            const transferModal = document.getElementById('transferModal');
+            const transferForm = document.getElementById('transferForm');
+
+            if (!recipient || !amount || !password) {
+                alert("Please fill in all fields.");
+                return;
+            }
+
+            // Close modal
+            if (transferModal) {
+                transferModal.style.display = 'none';
+            }
+
+            try {
+                const response = await fetch("/api/transfer", {
+                    method: "POST",
+                    headers: {"Content-Type": "application/json"},
+                    body: JSON.stringify({to_account: recipient, amount: amount, password: password})
+                });
+                
+                const data = await response.json();
+
+                let msgText;
+                if (data.ok) {
+                    msgText = `✅ Transfer of ₹${amount.toFixed(2)} to <b>${recipient}</b> completed successfully! Your new balance is ₹${parseFloat(data.balance).toFixed(2)}.`;
+                } else {
+                    msgText = `❌ Transfer failed: ${data.error || "Unknown error"}`;
+                }
+
+                addMessage(msgText, false);
+
+            } catch (error) {
+                addMessage('❌ Transfer failed. Please try again later.', false);
+                console.error('Transfer error:', error);
+            }
+
+            // Clear form
+            if (transferForm) {
+                transferForm.reset();
+            }
+        }
+
+        function addQuickSuggestions(suggestions) {
+            const messagesContainer = document.getElementById('chatMessages');
+            if (!messagesContainer) return;
+
+            const suggestionsDiv = document.createElement('div');
+            suggestionsDiv.className = 'quick-suggestions';
+            
+            suggestions.forEach(suggestion => {
+                const btn = document.createElement('button');
+                btn.className = 'suggestion-btn';
+                btn.textContent = suggestion;
+                btn.onclick = () => sendQuickMessage(suggestion);
+                suggestionsDiv.appendChild(btn);
+            });
+            
+            const wrapper = document.createElement('div');
+            wrapper.style.padding = '0 1rem';
+            wrapper.appendChild(suggestionsDiv);
+            
+            messagesContainer.appendChild(wrapper);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            
+            // Remove suggestions after 30 seconds
+            setTimeout(() => {
+                if (wrapper.parentNode) {
+                    wrapper.remove();
+                }
+            }, 30000);
+        }
+    </script>
+</body>
+</html>

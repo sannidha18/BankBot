@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureBank Portal</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #4c51bf;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo i {
+            font-size: 2rem;
+            color: #667eea;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #4a5568;
+            font-weight: 500;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-link:hover {
+            color: #4c51bf;
+            background: rgba(102, 126, 234, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .nav-link.active {
+            background: linear-gradient(135deg, #4c51bf, #667eea);
+            color: white;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .nav-link i {
+            margin-right: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .welcome-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .welcome-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .welcome-text h1 {
+            font-size: 2.5rem;
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .welcome-text p {
+            color: #718096;
+            font-size: 1.1rem;
+        }
+
+        .user-info {
+            text-align: right;
+            background: linear-gradient(135deg, #4c51bf, #667eea);
+            padding: 1.5rem;
+            border-radius: 15px;
+            color: white;
+            min-width: 200px;
+        }
+
+        .user-info h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .user-info p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            margin-right: 1rem;
+        }
+
+        .balance-icon { background: linear-gradient(135deg, #48bb78, #38a169); }
+        .transactions-icon { background: linear-gradient(135deg, #ed8936, #dd6b20); }
+        .transfer-icon { background: linear-gradient(135deg, #4299e1, #3182ce); }
+        .support-icon { background: linear-gradient(135deg, #9f7aea, #805ad5); }
+
+        .card h3 {
+            color: #2d3748;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .card p {
+            color: #718096;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .card-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 1rem;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #4c51bf, #667eea);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Quick Actions */
+        .quick-actions {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .quick-actions h2 {
+            color: #2d3748;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .actions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .action-btn {
+            background: white;
+            border: 2px solid #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: #4a5568;
+        }
+
+        .action-btn:hover {
+            border-color: #667eea;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .action-btn i {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+
+        .action-btn h4 {
+            margin-bottom: 0.5rem;
+            color: #2d3748;
+        }
+
+        .action-btn p {
+            font-size: 0.9rem;
+            color: #718096;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            .welcome-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 1.5rem;
+            }
+
+            .user-info {
+                text-align: center;
+                min-width: auto;
+                width: 100%;
+            }
+
+            .welcome-text h1 {
+                font-size: 2rem;
+            }
+
+            .main-content {
+                padding: 0 1rem;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Floating particles animation */
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0; }
+            50% { transform: translateY(-100px) rotate(180deg); opacity: 1; }
+        }
+
+        /* Smooth transitions */
+        * {
+            transition: color 0.3s ease, background-color 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-university"></i>
+                SecureBank
+            </div>
+            <nav class="nav-links">
+                <a href="/portal/dashboard" class="nav-link active">
+                    <i class="fas fa-tachometer-alt"></i>Dashboard
+                </a>
+                <a href="/portal/transactions" class="nav-link">
+                    <i class="fas fa-exchange-alt"></i>Transactions
+                </a>
+                <a href="/portal/account" class="nav-link">
+                    <i class="fas fa-user-circle"></i>Account
+                </a>
+                <a href="/portal/chat" class="nav-link">
+                    <i class="fas fa-robot"></i>Chatbot
+                </a>
+                <a href="/logout" class="nav-link">
+                    <i class="fas fa-sign-out-alt"></i>Logout
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Welcome Section -->
+        <section class="welcome-section">
+            <div class="welcome-header">
+                <div class="welcome-text">
+                    <h1>Welcome back,{{ user }}!</h1>
+                    <p>Here's what's happening with your account today.</p>
+                </div>
+                <div class="user-info">
+                    <h3>Account: 1000XX</h3>
+                    <p>Last login: Today, 10:30 AM</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cards Grid -->
+        <section class="cards-grid">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon balance-icon">
+                        <i class="fas fa-wallet"></i>
+                    </div>
+                    <div>
+                        <h3>Account Balance</h3>
+                        <p>Your current available balance</p>
+                    </div>
+                </div>
+                 <div class="balance-amount" id="primaryBalance"><h1>₹{{ "{:,.2f}".format(info.balance) }}</div>
+                <a href="/portal/account" class="btn">
+                    <i class="fas fa-eye"></i>View Details
+                </a>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon transactions-icon">
+                        <i class="fas fa-history"></i>
+                    </div>
+                    <div>
+                        <h3>Recent Activity</h3>
+                        <p>Your latest transactions</p>
+                    </div>
+                </div>
+                <div class="card-value">12</div>
+                <a href="/portal/transactions" class="btn">
+                    <i class="fas fa-list"></i>View All
+                </a>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon transfer-icon">
+                        <i class="fas fa-paper-plane"></i>
+                    </div>
+                    <div>
+                        <h3>Quick Transfer</h3>
+                        <p>Send money instantly</p>
+                    </div>
+                </div>
+                <p>Transfer funds to any account quickly and securely with our instant transfer service.</p>
+                <button class="btn" onclick="showTransferModal()">
+                    <i class="fas fa-arrow-right"></i>Transfer Now
+                </button>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon support-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <div>
+                        <h3>24/7 Support</h3>
+                        <p>Get help anytime</p>
+                    </div>
+                </div>
+                <p>Our AI chatbot is here to help you with balance inquiries, transfers, and account management.</p>
+                <a href="/portal/chat" class="btn">
+                    <i class="fas fa-comments"></i>Chat Now
+                </a>
+            </div>
+        </section>
+
+        <!-- Quick Actions -->
+        <section class="quick-actions">
+            <h2>Quick Actions</h2>
+            <div class="actions-grid">
+                <a href="#" class="action-btn" onclick="showDepositModal()">
+                    <i class="fas fa-plus-circle"></i>
+                    <h4>Deposit Money</h4>
+                    <p>Add funds to your account</p>
+                </a>
+                <a href="#" class="action-btn" onclick="showWithdrawModal()">
+                    <i class="fas fa-minus-circle"></i>
+                    <h4>Withdraw Cash</h4>
+                    <p>Withdraw from your balance</p>
+                </a>
+                <a href="/portal/transactions" class="action-btn">
+                    <i class="fas fa-download"></i>
+                    <h4>Download Statement</h4>
+                    <p>Get your transaction history</p>
+                </a>
+                <a href="/portal/account" class="action-btn">
+                    <i class="fas fa-cog"></i>
+                    <h4>Account Settings</h4>
+                    <p>Manage your preferences</p>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Floating Particles -->
+    <div id="particles"></div>
+
+    <script>
+        // Create floating particles
+        function createParticles() {
+            const container = document.getElementById('particles');
+            for (let i = 0; i < 20; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.width = Math.random() * 10 + 5 + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particle.style.animationDuration = (Math.random() * 4 + 4) + 's';
+                container.appendChild(particle);
+            }
+        }
+
+        // Modal functions (placeholders - you can implement these)
+        function showTransferModal() {
+            alert('Transfer modal would open here. Connect this to your transfer API.');
+        }
+
+        function showDepositModal() {
+            alert('Deposit modal would open here. Connect this to your deposit API.');
+        }
+
+        function showWithdrawModal() {
+            alert('Withdraw modal would open here. Connect this to your withdraw API.');
+        }
+
+        // Initialize particles
+        createParticles();
+
+        // Add some interactive effects
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                // Remove active class from all links
+                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                // Add active class to clicked link
+                this.classList.add('active');
+            });
+        });
+
+        // Dynamic time update
+        function updateTime() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('en-US', { 
+                hour: '2-digit', 
+                minute: '2-digit',
+                hour12: true 
+            });
+            const userInfo = document.querySelector('.user-info p');
+            if (userInfo) {
+                userInfo.textContent = `Last login: Today, ${timeString}`;
+            }
+        }
+
+        // Update time every minute
+        updateTime();
+        setInterval(updateTime, 60000);
+
+        // Add loading animation
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease-in-out';
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+    </script>
+</body>
+</html>
