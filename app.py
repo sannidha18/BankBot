@@ -2,6 +2,9 @@ import os
 import json
 import csv
 import uuid
+import sqlite3
+import pandas as pd
+import subprocess
 from datetime import datetime, timedelta
 from functools import wraps
 import re
@@ -40,6 +43,19 @@ def clear_transfer_step():
 
 import csv
 
+def add_query_to_csv(data):
+    with open('banking_queries_corrected.csv', 'a', newline='', encoding='utf-8') as csvfile:
+        writer = csv.DictWriter(csvfile, fieldnames=[
+            'text', 'intent', 'card_type', 'account_type', 'loan_type', 'amount', 
+            'account_number', 'date', 'day', 'response'
+        ])
+        
+        # If file is empty, write the header
+        if csvfile.tell() == 0:
+            writer.writeheader()
+
+        writer.writerow(data)
+
 def load_banking_queries():
     queries = {}
     with open('banking_queries_corrected.csv', newline='', encoding='utf-8') as csvfile:
@@ -61,11 +77,12 @@ def init_data():
             "bob":   {"password": "bob123",   "name": "Bob",   "balance": 120000, "account": "100002"},
             "carol": {"password": "carol123", "name": "Carol", "balance": 75000, "account": "100003"},
             "dave":  {"password": "dave123",  "name": "Dave",  "balance": 20000, "account": "100004"},
-            "eve":   {"password": "eve123",   "name": "Eve",   "balance": 98000, "account": "100005"}
+            "eve":   {"password": "eve123",   "name": "Eve",   "balance": 98000, "account": "100005"},
+            "admin": {"password": "admin123", "name": "Admin", "balance": 0, "account": "000000", "role": "admin"}  # NEW ADMIN USER
         }
         with open(DATA_USERS, "w", encoding="utf-8") as f:
             json.dump(demo, f, indent=2)
-        print("Initialized users.json with 5 demo users.")
+        print("Initialized users.json with 5 demo users + admin.")
 
     if not os.path.exists(DATA_TXNS):
         with open(DATA_TXNS, "w", newline='', encoding="utf-8") as f:
@@ -75,6 +92,27 @@ def init_data():
 
 init_data()
 
+def save_log(user_message, intent, entities, bot_response):
+    """Save chat logs to database for admin monitoring"""
+    conn = sqlite3.connect("logs.db")
+    cursor = conn.cursor()
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS logs (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            user_message TEXT,
+            intent TEXT,
+            entities TEXT,
+            bot_response TEXT,
+            username TEXT,
+            timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
+        )
+    ''')
+    cursor.execute(
+        "INSERT INTO logs (user_message, intent, entities, bot_response, username) VALUES (?, ?, ?, ?, ?)",
+        (user_message, intent, str(entities), bot_response, session.get('user', 'unknown'))
+    )
+    conn.commit()
+    conn.close()
 # ------------------------
 # Data helpers
 # ------------------------
@@ -145,6 +183,19 @@ def login_required(f):
         return f(*args, **kwargs)
     return decorated
 
+def is_admin():
+    """Check if current user is admin"""
+    return session.get("user") == "admin"
+
+def admin_required(f):
+    """Decorator to protect admin routes"""
+    @wraps(f)
+    def decorated(*args, **kwargs):
+        if not is_admin():
+            flash("Access denied. Admin only.", "danger")
+            return redirect(url_for("login"))
+        return f(*args, **kwargs)
+    return decorated
 # ------------------------
 # Routes: login / logout / homepage / portal pages etc.
 # (Your original code unchanged for all these below)
@@ -161,6 +212,11 @@ def login():
         users = load_users()
         if username in users and users[username]["password"] == password:
             session["user"] = username
+            
+            # NEW: Redirect admin to admin dashboard
+            if username == "admin":
+                return redirect(url_for("admin_dashboard"))
+            
             return redirect(url_for("homepage"))
         else:
             flash("Invalid username or password", "danger")
@@ -304,6 +360,188 @@ def api_recent():
     txs = get_transactions_for_user(username, limit=20)
     return jsonify({"transactions": txs})
 
+# ========================
+# ADMIN ROUTES
+# ========================
+
+@app.route("/admin/dashboard")
+@admin_required
+def admin_dashboard():
+    """Admin dashboard showing analytics"""
+    return render_template("admin_dashboard.html")
+
+@app.route("/admin/logs")
+@admin_required
+def admin_logs():
+    """View all chat logs with analytics"""
+    conn = sqlite3.connect("logs.db")
+    cursor = conn.cursor()
+    
+    # Get total queries
+    cursor.execute("SELECT COUNT(*) FROM logs")
+    total_queries = cursor.fetchone()[0]
+    
+    # Get success rate (queries with recognized intents)
+    cursor.execute("SELECT COUNT(*) FROM logs WHERE intent != 'default' AND intent != 'out_of_scope'")
+    successful = cursor.fetchone()[0]
+    success_rate = (successful / total_queries * 100) if total_queries > 0 else 0
+    
+    # Get unique intents count
+    cursor.execute("SELECT COUNT(DISTINCT intent) FROM logs")
+    unique_intents = cursor.fetchone()[0]
+    
+    # Get entity types count
+    cursor.execute("SELECT entities FROM logs")
+    all_entities = cursor.fetchall()
+    entity_types = set()
+    for (entities_str,) in all_entities:
+        try:
+            entities = eval(entities_str) if entities_str else []
+            for _, entity_type in entities:
+                entity_types.add(entity_type)
+        except:
+            pass
+    
+    # Get recent logs
+    cursor.execute("SELECT * FROM logs ORDER BY timestamp DESC LIMIT 100")
+    logs = cursor.fetchall()
+    conn.close()
+    
+    stats = {
+        'total_queries': total_queries,
+        'success_rate': round(success_rate, 1),
+        'unique_intents': unique_intents,
+        'entity_types': len(entity_types)
+    }
+    
+    return render_template("admin_logs.html", logs=logs, stats=stats)
+
+
+@app.route("/admin/training", methods=["GET", "POST"])
+@admin_required
+def admin_training():
+    """Manage training data and knowledge base"""
+    file_path = "banking_queries_corrected.csv"
+    
+    if request.method == "POST":
+        # Get form data
+        text = request.form.get("text", "").strip()
+        response = request.form.get("response", "").strip()
+        
+        if text and response:
+            # Prepare all fields (you can later add form inputs for these)
+            data = {
+                'text': text,
+                'intent': '',
+                'card_type': '',
+                'account_type': '',
+                'loan_type': '',
+                'amount': '',
+                'account_number': '',
+                'date': '',
+                'day': '',
+                'response': response
+            }
+
+            # Check if file exists
+            file_exists = os.path.exists(file_path)
+
+            # Append new entry using DictWriter (preserves commas correctly)
+            with open(file_path, "a", encoding="utf-8", newline="") as f:
+                fieldnames = ['text','intent','card_type','account_type','loan_type',
+                              'amount','account_number','date','day','response']
+                writer = csv.DictWriter(f, fieldnames=fieldnames)
+
+                # Write header only if file does not exist
+                if not file_exists:
+                    writer.writeheader()
+                
+                writer.writerow(data)
+            
+            # Reload queries for chatbot
+            global banking_queries
+            banking_queries = load_banking_queries()
+            
+            flash("✅ New knowledge base entry added!", "success")
+        else:
+            flash("⚠️ Please fill both fields.", "warning")
+        
+        return redirect(url_for("admin_training"))
+    
+    # Load existing training data
+    rows = []
+    if os.path.exists(file_path):
+        try:
+            with open(file_path, 'r', encoding='utf-8') as f:
+                reader = csv.DictReader(f)
+                for idx, row in enumerate(reader):
+                    rows.append({
+                        'index': idx,
+                        'text': row.get('text', ''),
+                        'response': row.get('response', '')
+                    })
+        except Exception as e:
+            flash(f"Error loading training data: {e}", "danger")
+    
+    return render_template("admin_training.html", rows=rows)
+
+
+@app.route("/admin/training/delete/<int:row_index>", methods=["POST"])
+@admin_required
+def delete_training_row(row_index):
+    """Delete a training data entry"""
+    file_path = "banking_queries_corrected.csv"
+    
+    if os.path.exists(file_path):
+        try:
+            # Read all rows
+            with open(file_path, 'r', encoding='utf-8') as f:
+                reader = csv.DictReader(f)
+                rows = list(reader)
+            
+            # Delete the specified row
+            if 0 <= row_index < len(rows):
+                del rows[row_index]
+                
+                # Write back
+                with open(file_path, 'w', encoding='utf-8', newline='') as f:
+                    if rows:
+                        fieldnames = rows[0].keys()
+                        writer = csv.DictWriter(f, fieldnames=fieldnames, quoting=csv.QUOTE_ALL)
+                        writer.writeheader()
+                        writer.writerows(rows)
+                
+                # Reload queries
+                global banking_queries
+                banking_queries = load_banking_queries()
+                
+                flash("✅ Entry deleted successfully!", "success")
+            else:
+                flash("⚠️ Invalid row index.", "warning")
+        except Exception as e:
+            flash(f"❌ Error deleting entry: {str(e)}", "danger")
+    else:
+        flash("⚠️ Training file not found.", "warning")
+    
+    return redirect(url_for("admin_training"))
+
+@app.route("/admin/analytics/export")
+@admin_required
+def export_analytics():
+    """Export analytics data as CSV"""
+    conn = sqlite3.connect("logs.db")
+    df = pd.read_sql_query("SELECT * FROM logs ORDER BY timestamp DESC", conn)
+    conn.close()
+    
+    # Create CSV
+    csv_data = df.to_csv(index=False)
+    
+    from flask import make_response
+    response = make_response(csv_data)
+    response.headers["Content-Disposition"] = "attachment; filename=chat_logs.csv"
+    response.headers["Content-Type"] = "text/csv"
+    
+    return response
 # ------------------------
 # Static files
 # ------------------------
@@ -969,6 +1207,12 @@ def enhanced_chat():
                 # Use chatbot for all other messages
                 chatbot = BankChatbot()
                 result = chatbot.process_message(message, username, users)
+                save_log(
+            user_message=message,
+            intent=result.get('intent', 'unknown'),
+            entities=[],  # Add entity extraction if needed
+            bot_response=result.get('response', '')
+        )
                 return jsonify(result)
 
         except Exception as e:
