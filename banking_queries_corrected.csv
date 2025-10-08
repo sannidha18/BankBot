@@ -722,3 +722,4 @@ I want to close my current account,close_account,,current,,,,,,"To close your ac
 I have lost my card,lost_card,,,,,,,,If your card is lost or stolen we can block it immediately. Please confirm the last 4 digits of the card.
 What is the interest rate for a car loan?,get_interest_rate,,,car loan,,,,,Loan interest rates depend on loan type and your profile. Which loan are you asking about (personal/home/business)?
 I need to transfer 2000 from my savings account to checking,transfer_money,,savings,checking,,2000,,,Your transfer request has been initiated successfully. Please confirm the amount and recipient.
+What are bank timings?,,,,,,,,,"We're open Monday-Friday 9 AM-5 PM, Saturday 9 AM-1 PM"

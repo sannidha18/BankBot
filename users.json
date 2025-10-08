@@ -2,13 +2,13 @@
   "alice": {
     "password": "alice123",
     "name": "Alice",
-    "balance": 80000.0,
+    "balance": 75000.0,
     "account": "100001"
   },
   "bob": {
     "password": "bob123",
     "name": "Bob",
-    "balance": 75000.0,
+    "balance": 80000.0,
     "account": "100002"
   },
   "carol": {
@@ -28,5 +28,12 @@
     "name": "Eve",
     "balance": 105000.0,
     "account": "100005"
+  },
+  "admin": {
+    "password": "admin123",
+    "name": "Admin",
+    "balance": 0,
+    "account": "000000",
+    "role": "admin"
   }
 }

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Knowledge Base - Admin</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-md-2 admin-sidebar p-4" style="min-height: 100vh; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                <h3><i class="fas fa-shield-alt"></i> Admin Panel</h3>
+                <hr>
+                <nav class="nav flex-column">
+                    <a class="nav-link text-white" href="{{ url_for('admin_dashboard') }}">
+                        <i class="fas fa-chart-line"></i> Dashboard
+                    </a>
+                    <a class="nav-link text-white" href="{{ url_for('admin_logs') }}">
+                        <i class="fas fa-list"></i> Query Logs
+                    </a>
+                    <a class="nav-link text-white active" href="{{ url_for('admin_training') }}">
+                        <i class="fas fa-database"></i> Knowledge Base
+                    </a>
+                    <a class="nav-link text-white" href="{{ url_for('logout') }}">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                </nav>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-md-10 p-4">
+                <h2>Knowledge Base Management</h2>
+
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                        <div class="alert alert-{{ category }} alert-dismissible fade show">
+                            {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+
+                <!-- Add New Entry Form -->
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h5><i class="fas fa-plus"></i> Add New Entry</h5>
+                    </div>
+                    <div class="card-body">
+                        <form method="POST">
+                            <div class="mb-3">
+                                <label class="form-label">Query Text</label>
+                                <input type="text" class="form-control" name="text" required 
+                                       placeholder="e.g., What is my account balance?">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Response</label>
+                                <textarea class="form-control" name="response" rows="3" required
+                                          placeholder="e.g., Your account balance is..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-success">
+                                <i class="fas fa-save"></i> Add Entry
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Existing Entries -->
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Existing Knowledge Base ({{ rows|length }} entries)</h5>
+                    </div>
+                    <div class="card-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th style="width: 30%">Query</th>
+                                    <th style="width: 60%">Response</th>
+                                    <th style="width: 10%">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for row in rows %}
+                                <tr>
+                                    <td>{{ row.text }}</td>
+                                    <td>{{ row.response }}</td>
+                                    <td>
+                                        <form method="POST" action="{{ url_for('delete_training_row', row_index=row.index) }}" style="display: inline;">
+                                            <button type="submit" class="btn btn-sm btn-danger"
+                                                    onclick="return confirm('Delete this entry?')">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
